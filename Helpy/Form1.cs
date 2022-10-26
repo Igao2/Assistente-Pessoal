@@ -20,6 +20,11 @@ namespace Helpy
             butLogin.FlatAppearance.MouseDownBackColor = Color.Transparent;
             butLogin.FlatAppearance.MouseOverBackColor = Color.Transparent;
             butLogin.BackColor = Color.Transparent;
+            butCad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            butCad.FlatAppearance.BorderSize = 0;
+            butCad.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            butCad.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            butCad.BackColor = Color.Transparent;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,5 +47,23 @@ namespace Helpy
             Loginpopu loginpopu = new Loginpopu();
             loginpopu.Show();
         }
+
+        private void RichTextBox4_Click(object sender, EventArgs e)
+        {
+            richTextBox4.Text = "";
+        }
+
+        private void RichTextBox5_Click(object sender, EventArgs e)
+        {
+            richTextBox5.Text = "";
+        }
+
+        private void RichTextBox6_Click(object sender, EventArgs e)
+        {
+            richTextBox6.Text = "";
+
+        }
+
+       
     }
 }

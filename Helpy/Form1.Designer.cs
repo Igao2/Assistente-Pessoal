@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.usuario = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.butCad = new System.Windows.Forms.Button();
             this.butLogin = new System.Windows.Forms.Button();
             this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
@@ -47,31 +47,33 @@
             this.usuario.Location = new System.Drawing.Point(451, 129);
             this.usuario.Multiline = false;
             this.usuario.Name = "usuario";
-            this.usuario.Size = new System.Drawing.Size(375, 21);
-            this.usuario.TabIndex = 0;
+            this.usuario.Size = new System.Drawing.Size(375, 28);
+            this.usuario.TabIndex = 1;
             this.usuario.Text = "Nome de usuário";
             this.usuario.Click += new System.EventHandler(this.Usuario_Click);
             this.usuario.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             // 
-            // button1
+            // butCad
             // 
-            this.button1.Location = new System.Drawing.Point(531, 424);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 39);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
+            this.butCad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butCad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butCad.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.butCad.Location = new System.Drawing.Point(531, 424);
+            this.butCad.Name = "butCad";
+            this.butCad.Size = new System.Drawing.Size(200, 39);
+            this.butCad.TabIndex = 4;
+            this.butCad.UseVisualStyleBackColor = true;
             // 
             // butLogin
             // 
+            this.butLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.butLogin.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.butLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.butLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butLogin.Location = new System.Drawing.Point(69, 433);
             this.butLogin.Name = "butLogin";
             this.butLogin.Size = new System.Drawing.Size(149, 39);
-            this.butLogin.TabIndex = 5;
+            this.butLogin.TabIndex = 0;
             this.butLogin.UseVisualStyleBackColor = true;
             this.butLogin.Click += new System.EventHandler(this.Button2_Click);
             // 
@@ -85,9 +87,10 @@
             this.richTextBox4.Location = new System.Drawing.Point(451, 209);
             this.richTextBox4.Multiline = false;
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(375, 21);
+            this.richTextBox4.Size = new System.Drawing.Size(375, 25);
             this.richTextBox4.TabIndex = 6;
             this.richTextBox4.Text = "Email";
+            this.richTextBox4.Click += new System.EventHandler(this.RichTextBox4_Click);
             // 
             // richTextBox5
             // 
@@ -99,9 +102,10 @@
             this.richTextBox5.Location = new System.Drawing.Point(451, 286);
             this.richTextBox5.Multiline = false;
             this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(375, 21);
+            this.richTextBox5.Size = new System.Drawing.Size(375, 29);
             this.richTextBox5.TabIndex = 7;
             this.richTextBox5.Text = "Telefone";
+            this.richTextBox5.Click += new System.EventHandler(this.RichTextBox5_Click);
             // 
             // richTextBox6
             // 
@@ -113,9 +117,10 @@
             this.richTextBox6.Location = new System.Drawing.Point(451, 362);
             this.richTextBox6.Multiline = false;
             this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(375, 21);
+            this.richTextBox6.Size = new System.Drawing.Size(375, 30);
             this.richTextBox6.TabIndex = 8;
             this.richTextBox6.Text = "Senha";
+            this.richTextBox6.Click += new System.EventHandler(this.RichTextBox6_Click);
             // 
             // Form1
             // 
@@ -129,7 +134,7 @@
             this.Controls.Add(this.richTextBox5);
             this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.butLogin);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.butCad);
             this.Controls.Add(this.usuario);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -140,7 +145,7 @@
 
         #endregion
         private System.Windows.Forms.RichTextBox usuario;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button butCad;
         private System.Windows.Forms.Button butLogin;
         private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.RichTextBox richTextBox5;

@@ -8,3 +8,4 @@ C:\Users\aluno\Desktop\Einari\Helpy\Helpy\obj\Debug\Helpy.csproj.GenerateResourc
 C:\Users\aluno\Desktop\Einari\Helpy\Helpy\obj\Debug\Helpy.csproj.CoreCompileInputs.cache
 C:\Users\aluno\Desktop\Einari\Helpy\Helpy\obj\Debug\Helpy.exe
 C:\Users\aluno\Desktop\Einari\Helpy\Helpy\obj\Debug\Helpy.pdb
+C:\Users\aluno\Desktop\Einari\Helpy\Helpy\obj\Debug\Helpy.Loginpopu.resources
