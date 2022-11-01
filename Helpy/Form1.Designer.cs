@@ -57,9 +57,9 @@
             this.butCad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.butCad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butCad.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.butCad.Location = new System.Drawing.Point(531, 424);
+            this.butCad.Location = new System.Drawing.Point(513, 432);
             this.butCad.Name = "butCad";
-            this.butCad.Size = new System.Drawing.Size(200, 39);
+            this.butCad.Size = new System.Drawing.Size(239, 61);
             this.butCad.TabIndex = 4;
             this.butCad.UseVisualStyleBackColor = true;
             // 
@@ -69,9 +69,9 @@
             this.butLogin.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.butLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.butLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butLogin.Location = new System.Drawing.Point(69, 433);
+            this.butLogin.Location = new System.Drawing.Point(58, 432);
             this.butLogin.Name = "butLogin";
-            this.butLogin.Size = new System.Drawing.Size(149, 39);
+            this.butLogin.Size = new System.Drawing.Size(179, 61);
             this.butLogin.TabIndex = 0;
             this.butLogin.UseVisualStyleBackColor = true;
             this.butLogin.Click += new System.EventHandler(this.Button2_Click);
@@ -98,7 +98,7 @@
             this.telefone.EnableAutoDragDrop = true;
             this.telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.telefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
-            this.telefone.Location = new System.Drawing.Point(451, 286);
+            this.telefone.Location = new System.Drawing.Point(451, 288);
             this.telefone.Multiline = false;
             this.telefone.Name = "telefone";
             this.telefone.Size = new System.Drawing.Size(375, 29);
@@ -112,18 +112,18 @@
             this.senha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
-            this.senha.Location = new System.Drawing.Point(451, 365);
+            this.senha.Location = new System.Drawing.Point(451, 372);
             this.senha.Name = "senha";
             this.senha.PasswordChar = '*';
             this.senha.Size = new System.Drawing.Size(375, 24);
             this.senha.TabIndex = 9;
             this.senha.Text = "Senha";
             this.senha.Click += new System.EventHandler(this.senha_Click);
+            this.senha.TextChanged += new System.EventHandler(this.Senha_TextChanged);
             // 
             // Cadastro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(122)))), ((int)(((byte)(181)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -134,6 +134,8 @@
             this.Controls.Add(this.butLogin);
             this.Controls.Add(this.butCad);
             this.Controls.Add(this.usuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Cadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar";
