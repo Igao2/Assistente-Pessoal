@@ -81,6 +81,8 @@
             this.Controls.Add(this.butLogin);
             this.Controls.Add(this.email);
             this.Controls.Add(this.senha);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Loginpopu";
             this.Text = "Loginpopu";
             this.Load += new System.EventHandler(this.Loginpopu_Load);

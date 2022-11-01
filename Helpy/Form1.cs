@@ -16,6 +16,7 @@ namespace Helpy
         public int ema = 0;
         public int tel = 0;
         public int pass = 0;
+        
         public Cadastro()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace Helpy
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
         public void TextoAuto()
         {
@@ -156,6 +157,11 @@ namespace Helpy
             {
                 usuario.Text = "Nome de usuário";
             }
+        }
+
+        private void Senha_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
