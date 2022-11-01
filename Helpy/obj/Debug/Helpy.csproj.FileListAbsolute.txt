@@ -9,3 +9,15 @@ C:\Users\aluno\Desktop\Einari\Helpy\Helpy\obj\Debug\Helpy.csproj.CoreCompileInpu
 C:\Users\aluno\Desktop\Einari\Helpy\Helpy\obj\Debug\Helpy.exe
 C:\Users\aluno\Desktop\Einari\Helpy\Helpy\obj\Debug\Helpy.pdb
 C:\Users\aluno\Desktop\Einari\Helpy\Helpy\obj\Debug\Helpy.Loginpopu.resources
+C:\Users\Igor\Desktop\Helpy\Helpy\bin\Debug\Helpy.exe.config
+C:\Users\Igor\Desktop\Helpy\Helpy\bin\Debug\Helpy.exe
+C:\Users\Igor\Desktop\Helpy\Helpy\bin\Debug\Helpy.pdb
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.csproj.AssemblyReference.cache
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.csproj.SuggestedBindingRedirects.cache
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.Loginpopu.resources
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.Properties.Resources.resources
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.csproj.GenerateResource.cache
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.csproj.CoreCompileInputs.cache
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.exe
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.pdb
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.Cadastro.resources
