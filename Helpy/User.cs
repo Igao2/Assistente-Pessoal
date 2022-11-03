@@ -23,7 +23,7 @@ namespace Helpy
         }
         public void setEmail(ArrayList a )
         {
-            a[count] = email[count];
+            email.Add(a);
         }
         public ArrayList getSenha()
         {
@@ -31,7 +31,7 @@ namespace Helpy
         }
         public void setSenha(ArrayList e)
         {
-            e[count] = senha[count];
+            senha.Add(e);
         }
     }
 }
