@@ -6,8 +6,18 @@ namespace Helpy
     {
         public static ArrayList email = new ArrayList();
         public static ArrayList senha = new ArrayList();
+        public static int posAtual = 0;
         public static int count = 0;
 
+        public int getposAtual()
+        {
+            return posAtual;
+        }
+
+        public void setposAtual(int x)
+        {
+            posAtual = x;
+        }
 
         public int getCount()
         {

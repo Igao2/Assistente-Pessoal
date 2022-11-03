@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,12 +35,12 @@ namespace Helpy
 
         }
 
-       
+
 
         private void email_Click(object sender, EventArgs e)
         {
             em++;
-            if(email.Text == "Email")
+            if (email.Text == "Email")
             {
                 email.Text = "";
             }
@@ -47,7 +48,7 @@ namespace Helpy
             {
                 email.Text = email.Text;
             }
-            if(pas > 0 && em >0 && senha.Text == "")
+            if (pas > 0 && em > 0 && senha.Text == "")
             {
                 senha.Text = "Senha";
             }
@@ -56,7 +57,7 @@ namespace Helpy
         private void senha_Click(object sender, EventArgs e)
         {
             pas++;
-            if(senha.Text == "Senha")
+            if (senha.Text == "Senha")
             {
                 senha.Text = "";
             }
@@ -64,9 +65,26 @@ namespace Helpy
             {
                 senha.Text = senha.Text;
             }
-            if(em > 0 && pas > 0 && email.Text == "")
+            if (em > 0 && pas > 0 && email.Text == "")
             {
                 email.Text = "Email";
+            }
+        }
+
+        private void butLogin_Click(object sender, EventArgs e)
+        {
+            User u = new User();
+            ArrayList eMail = u.getEmail();
+            ArrayList sEnha = u.getSenha();
+            int contador = u.getCount();
+            for (int i = 0; i < contador; i++)
+            {
+                if ((String)eMail[contador]==email.Text && (String)sEnha[contador]==senha.Text)
+                {
+                    u.setposAtual(i);
+                    MessageBox.Show("Login realizado com sucesso", "Sucesso",MessageBoxButtons.OK);
+                }
+
             }
         }
     }

@@ -13,8 +13,14 @@ namespace Helpy
 {
     public partial class Cadastro : Form
     {
+        public string originalUsuario = "Nome de usuário";
+        public string originalEmail = "Email";
+        public string originalTelefone = "Telefone";
+        public string originalSenha = "Senha";
         public ArrayList lOgin = new ArrayList();
         public ArrayList sEnha = new ArrayList();
+        public ArrayList uSuario = new ArrayList();
+        public ArrayList teLefone = new ArrayList();
         public int us = 0;
         public int ema = 0;
         public int tel = 0;
@@ -88,7 +94,7 @@ namespace Helpy
         {
             string arroba = "@";
             string com = ".com";
-            if (email.Text != "" && usuario.Text != "" && telefone.Text != "" && senha.Text != "")
+            if (email.Text != "" && email.Text != originalEmail && usuario.Text != "" && usuario.Text!= originalUsuario && telefone.Text != "" && telefone.Text != originalTelefone && senha.Text != "" && senha.Text != originalSenha)
             {
                 if (email.Text.Contains(arroba) && email.Text.Contains(com))
                 {
@@ -108,6 +114,10 @@ namespace Helpy
             else
             {
                 MessageBox.Show("Preencha todos os campos!!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                usuario.Text = originalUsuario;
+                email.Text = originalEmail;
+                senha.Text = originalSenha;
+                telefone.Text= originalTelefone;
             }
         }
 

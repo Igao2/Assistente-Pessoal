@@ -70,6 +70,7 @@
             this.butLogin.Size = new System.Drawing.Size(155, 49);
             this.butLogin.TabIndex = 0;
             this.butLogin.UseVisualStyleBackColor = true;
+            this.butLogin.Click += new System.EventHandler(this.butLogin_Click);
             // 
             // Loginpopu
             // 

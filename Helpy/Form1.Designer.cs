@@ -66,26 +66,25 @@
             // 
             this.senha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.senha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
             this.senha.Location = new System.Drawing.Point(451, 372);
             this.senha.Name = "senha";
             this.senha.PasswordChar = '*';
-            this.senha.Size = new System.Drawing.Size(375, 24);
+            this.senha.Size = new System.Drawing.Size(375, 25);
             this.senha.TabIndex = 9;
             this.senha.Text = "Senha";
             this.senha.Click += new System.EventHandler(this.senha_Click);
-            
             // 
             // telefone
             // 
             this.telefone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.telefone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.telefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
             this.telefone.Location = new System.Drawing.Point(451, 290);
             this.telefone.Name = "telefone";
-            this.telefone.Size = new System.Drawing.Size(375, 24);
+            this.telefone.Size = new System.Drawing.Size(375, 25);
             this.telefone.TabIndex = 10;
             this.telefone.Text = "Telefone";
             this.telefone.Click += new System.EventHandler(this.telefone_Click);
@@ -94,11 +93,11 @@
             // 
             this.email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.email.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
             this.email.Location = new System.Drawing.Point(451, 211);
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(375, 24);
+            this.email.Size = new System.Drawing.Size(375, 25);
             this.email.TabIndex = 11;
             this.email.Text = "Email";
             this.email.Click += new System.EventHandler(this.email_Click);
@@ -107,11 +106,11 @@
             // 
             this.usuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.usuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
-            this.usuario.Location = new System.Drawing.Point(451, 129);
+            this.usuario.Location = new System.Drawing.Point(451, 131);
             this.usuario.Name = "usuario";
-            this.usuario.Size = new System.Drawing.Size(375, 24);
+            this.usuario.Size = new System.Drawing.Size(386, 25);
             this.usuario.TabIndex = 12;
             this.usuario.Text = "Nome de usuário";
             this.usuario.Click += new System.EventHandler(this.usuario_Click_1);
