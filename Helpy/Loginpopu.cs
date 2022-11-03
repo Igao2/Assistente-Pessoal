@@ -74,15 +74,22 @@ namespace Helpy
         private void butLogin_Click(object sender, EventArgs e)
         {
             User u = new User();
-            ArrayList eMail = u.getEmail();
-            ArrayList sEnha = u.getSenha();
+            List<string> a = u.getEmail();
+            List<string> b = u.getSenha();
             int contador = u.getCount();
+           
             for (int i = 0; i < contador; i++)
             {
-                if ((String)eMail[contador]==email.Text && (String)sEnha[contador]==senha.Text)
+                if (a[i]==email.Text && b[i]==senha.Text)
                 {
+                    MessageBox.Show("Login realizado com sucesso!");
                     u.setposAtual(i);
-                    MessageBox.Show("Login realizado com sucesso", "Sucesso",MessageBoxButtons.OK);
+
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Email e/ou Senha incorreto(s)!!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
                 }
 
             }

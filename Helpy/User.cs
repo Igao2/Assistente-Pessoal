@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace Helpy
 {
     class User
     {
-        public static ArrayList email = new ArrayList();
-        public static ArrayList senha = new ArrayList();
+        public static List<string> email = new List<string>();
+        public static List<string> senha = new List<string>();
         public static int posAtual = 0;
         public static int count = 0;
 
@@ -27,19 +28,19 @@ namespace Helpy
         {
             count++;
         }
-        public ArrayList getEmail()
+        public List<string> getEmail()
         {
             return email;
         }
-        public void setEmail(ArrayList a )
+        public void setEmail(string a )
         {
             email.Add(a);
         }
-        public ArrayList getSenha()
+        public List<string> getSenha()
         {
             return senha;
         }
-        public void setSenha(ArrayList e)
+        public void setSenha(string e)
         {
             senha.Add(e);
         }

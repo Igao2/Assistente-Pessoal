@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using System.Runtime;
 
 namespace Helpy
 {
@@ -17,10 +18,7 @@ namespace Helpy
         public string originalEmail = "Email";
         public string originalTelefone = "Telefone";
         public string originalSenha = "Senha";
-        public ArrayList lOgin = new ArrayList();
-        public ArrayList sEnha = new ArrayList();
-        public ArrayList uSuario = new ArrayList();
-        public ArrayList teLefone = new ArrayList();
+      
         public int us = 0;
         public int ema = 0;
         public int tel = 0;
@@ -99,12 +97,13 @@ namespace Helpy
                 if (email.Text.Contains(arroba) && email.Text.Contains(com))
                 {
                     User u = new User();
-                    
-                    lOgin.Add(email.Text);
-                    sEnha.Add(senha.Text);
-                    u.setEmail(lOgin);
-                    u.setSenha(sEnha);
-                    MessageBox.Show("Cadastro realizado com sucesso, Seja bem vindo!!" , "Mensagem do Sistema",MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    List<string> t = u.getEmail();
+                    u.setEmail(email.Text);
+                    u.setSenha(senha.Text);
+                   
+                    MessageBox.Show("Cadastro realizado com sucesso, Seja bem vindo!!" + t[u.getCount()] +"", "Mensagem do Sistema",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    u.setCount(1);
                 }
                 else
                 {
