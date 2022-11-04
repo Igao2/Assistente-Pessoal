@@ -38,12 +38,12 @@
             // 
             this.senha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.senha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
             this.senha.Location = new System.Drawing.Point(77, 343);
             this.senha.Name = "senha";
             this.senha.PasswordChar = '*';
-            this.senha.Size = new System.Drawing.Size(375, 24);
+            this.senha.Size = new System.Drawing.Size(375, 25);
             this.senha.TabIndex = 10;
             this.senha.Text = "Senha";
             this.senha.Click += new System.EventHandler(this.senha_Click);
@@ -53,11 +53,11 @@
             // 
             this.email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.email.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
             this.email.Location = new System.Drawing.Point(77, 221);
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(375, 24);
+            this.email.Size = new System.Drawing.Size(375, 25);
             this.email.TabIndex = 9;
             this.email.Text = "Email";
             this.email.Click += new System.EventHandler(this.email_Click);
@@ -65,6 +65,8 @@
             // butLogin
             // 
             this.butLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butLogin.FlatAppearance.BorderSize = 0;
+            this.butLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butLogin.Location = new System.Drawing.Point(168, 464);
             this.butLogin.Name = "butLogin";
             this.butLogin.Size = new System.Drawing.Size(155, 49);
