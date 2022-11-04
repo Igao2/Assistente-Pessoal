@@ -29,7 +29,7 @@ namespace Helpy
             InitializeComponent();
             butLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             butLogin.FlatAppearance.BorderSize = 0;
-            butLogin.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            butLogin.FlatAppearance.MouseDownBackColor = Color.FromArgb(173, 122, 181);
             butLogin.FlatAppearance.MouseOverBackColor = Color.Transparent;
             butLogin.BackColor = Color.Transparent;
             butCad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -197,6 +197,11 @@ namespace Helpy
             {
                 usuario.Text = "Nome de usuário";
             }
+        }
+        
+        private void Usuario_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

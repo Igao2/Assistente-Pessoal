@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cadastro));
             this.butCad = new System.Windows.Forms.Button();
             this.butLogin = new System.Windows.Forms.Button();
@@ -35,11 +36,14 @@
             this.telefone = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
             this.usuario = new System.Windows.Forms.TextBox();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // butCad
             // 
             this.butCad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butCad.FlatAppearance.BorderSize = 0;
             this.butCad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butCad.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.butCad.Location = new System.Drawing.Point(513, 432);
@@ -53,6 +57,7 @@
             // 
             this.butLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.butLogin.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.butLogin.FlatAppearance.BorderSize = 0;
             this.butLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.butLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.butLogin.Location = new System.Drawing.Point(58, 432);
@@ -114,6 +119,11 @@
             this.usuario.TabIndex = 12;
             this.usuario.Text = "Nome de usuário";
             this.usuario.Click += new System.EventHandler(this.usuario_Click_1);
+            this.usuario.TextChanged += new System.EventHandler(this.Usuario_TextChanged);
+            // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(Helpy.User);
             // 
             // Cadastro
             // 
@@ -134,6 +144,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,6 +157,7 @@
         private System.Windows.Forms.TextBox telefone;
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.TextBox usuario;
+        private System.Windows.Forms.BindingSource userBindingSource;
     }
 }
 
