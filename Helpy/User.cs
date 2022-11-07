@@ -7,6 +7,7 @@ namespace Helpy
     {
         public static List<string> email = new List<string>();
         public static List<string> senha = new List<string>();
+        
         public static int posAtual = 0;
         public static int count = 0;
 

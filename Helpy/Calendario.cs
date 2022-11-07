@@ -8,15 +8,23 @@ namespace Helpy
 {
     class Calendario
     {
-        public static List<string> nome = new List<string>();
-        public static List<string> descricao = new List<string>();
-        public static int[] dias = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 };
-        public static string[] meses = { "janeiro", "fevereiro", "março", "abril", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro" };
-
-
-        public List<string> getNome()
+        public static List<Tuple<int,string,string,string>> evento = new List<Tuple<int,string,string,string>>();
+        public static List<Tuple<int, string>> tarefa = new List<Tuple<int, string>>();
+        public List<Tuple<int,string,string,string>> getEvento()
         {
-            return nome;
+            return evento;
+        }
+        public void setEvento(int pos,string nome,string descricao, string data)
+        {
+            evento.Add(Tuple.Create(pos,nome,descricao,data));
+        }
+        public List<Tuple<int,string>> getTarefa()
+        {
+            return tarefa;
+        }
+        public void setTarefa(int pos,string nome)
+        {
+            tarefa.Add(Tuple.Create(pos, nome));
         }
     }
 }
