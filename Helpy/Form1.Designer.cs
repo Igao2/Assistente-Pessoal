@@ -119,7 +119,7 @@
             this.usuario.TabIndex = 12;
             this.usuario.Text = "Nome de usuário";
             this.usuario.Click += new System.EventHandler(this.usuario_Click_1);
-            this.usuario.TextChanged += new System.EventHandler(this.Usuario_TextChanged);
+            
             // 
             // userBindingSource
             // 
@@ -143,6 +143,7 @@
             this.Name = "Cadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Cadastro_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.ResumeLayout(false);

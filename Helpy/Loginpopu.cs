@@ -74,16 +74,22 @@ namespace Helpy
         private void butLogin_Click(object sender, EventArgs e)
         {
             User u = new User();
-            List<string> a = u.getEmail();
-            List<string> b = u.getSenha();
+            List<Tuple<string, string, string, string>> a = u.getUsuario();
             int contador = u.getCount();
            
             for (int i = 0; i < contador; i++)
             {
-                if (a[i]==email.Text && b[i]==senha.Text)
+                if (a[i].Item2==email.Text && a[i].Item4==senha.Text)
                 {
                     MessageBox.Show("Login realizado com sucesso!");
                     u.setposAtual(i);
+                    Homepage h = new Homepage();
+                    Cadastro cad = new Cadastro();
+                    cad.Hide();
+                    this.Hide();
+                    h.Closed += (s, args) => this.Close();
+                    h.Closed += (s, args) => cad.Close();
+                    h.Show();
 
                    
                 }

@@ -1,12 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Helpy
 {
     class User
     {
-        public static List<string> email = new List<string>();
-        public static List<string> senha = new List<string>();
+        public static List<Tuple<string,string,string,string>> usuario = new List<Tuple<string,string,string,string>>();    
         
         public static int posAtual = 0;
         public static int count = 0;
@@ -29,21 +29,13 @@ namespace Helpy
         {
             count++;
         }
-        public List<string> getEmail()
+        public List<Tuple<string,string,string,string>> getUsuario()
         {
-            return email;
+            return usuario;
         }
-        public void setEmail(string a )
+        public void setUsuario(string nome,string email,string telefone,string senha)
         {
-            email.Add(a);
-        }
-        public List<string> getSenha()
-        {
-            return senha;
-        }
-        public void setSenha(string e)
-        {
-            senha.Add(e);
+            usuario.Add(Tuple.Create(nome, email, telefone, senha));
         }
     }
 }

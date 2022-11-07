@@ -98,12 +98,18 @@ namespace Helpy
                 {
                     User u = new User();
 
-                    List<string> t = u.getEmail();
-                    u.setEmail(email.Text);
-                    u.setSenha(senha.Text);
+                    u.setUsuario(usuario.Text, email.Text, telefone.Text, senha.Text);
+                    List<Tuple<string, string, string, string>> t = u.getUsuario();
                    
-                    MessageBox.Show("Cadastro realizado com sucesso, Seja bem vindo!!" + t[u.getCount()] +"", "Mensagem do Sistema",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cadastro realizado com sucesso, seja bem vindo " + t[u.getCount()].Item1 +" ", "Mensagem do Sistema",MessageBoxButtons.OK, MessageBoxIcon.Information);
                     u.setCount(1);
+                    usuario.Text = originalUsuario;
+                    email.Text = originalEmail;
+                    telefone.Text = originalTelefone;
+                    senha.Text = originalSenha;
+                    this.Hide();
+                    Loginpopu login = new Loginpopu();
+                    login.Show();
                 }
                 else
                 {
@@ -199,9 +205,11 @@ namespace Helpy
             }
         }
         
-        private void Usuario_TextChanged(object sender, EventArgs e)
-        {
+        
 
+        private void Cadastro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
