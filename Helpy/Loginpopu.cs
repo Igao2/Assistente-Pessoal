@@ -16,11 +16,11 @@ namespace Helpy
         public Loginpopu()
         {
             InitializeComponent();
-            butLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            butLogin.FlatAppearance.BorderSize = 0;
-            butLogin.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            butLogin.FlatAppearance.MouseOverBackColor = Color.Transparent;
-            butLogin.BackColor = Color.Transparent;
+            buttonlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            buttonlogin.FlatAppearance.BorderSize = 0;
+            buttonlogin.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            buttonlogin.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            buttonlogin.BackColor = Color.Transparent;
         }
         public int em = 0;
         public int pas = 0;
@@ -73,25 +73,30 @@ namespace Helpy
 
         private void butLogin_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void Buttonlogin_Click(object sender, EventArgs e)
+        {
             User u = new User();
             List<Tuple<string, string, string, string>> a = u.getUsuario();
             int contador = u.getCount();
-           
+
             for (int i = 0; i < contador; i++)
             {
-                if (a[i].Item2==email.Text && a[i].Item4==senha.Text)
+                if (a[i].Item2 == email.Text && a[i].Item4 == senha.Text)
                 {
-                    MessageBox.Show("Login realizado com sucesso!");
+                   
                     u.setposAtual(i);
                     Homepage h = new Homepage();
                     Cadastro cad = new Cadastro();
                     cad.Hide();
                     this.Hide();
                     h.Closed += (s, args) => this.Close();
-                    h.Closed += (s, args) => cad.Close();
+
                     h.Show();
 
-                   
+
                 }
                 else
                 {

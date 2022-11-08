@@ -211,5 +211,10 @@ namespace Helpy
         {
             Application.Exit();
         }
+
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -32,6 +32,7 @@
             this.senha = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
             this.butLogin = new System.Windows.Forms.Button();
+            this.buttonlogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // senha
@@ -40,7 +41,7 @@
             this.senha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
-            this.senha.Location = new System.Drawing.Point(77, 343);
+            this.senha.Location = new System.Drawing.Point(77, 285);
             this.senha.Name = "senha";
             this.senha.PasswordChar = '*';
             this.senha.Size = new System.Drawing.Size(375, 25);
@@ -55,7 +56,7 @@
             this.email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
-            this.email.Location = new System.Drawing.Point(77, 221);
+            this.email.Location = new System.Drawing.Point(77, 183);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(375, 25);
             this.email.TabIndex = 9;
@@ -74,19 +75,31 @@
             this.butLogin.UseVisualStyleBackColor = true;
             this.butLogin.Click += new System.EventHandler(this.butLogin_Click);
             // 
+            // buttonlogin
+            // 
+            this.buttonlogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonlogin.Location = new System.Drawing.Point(169, 391);
+            this.buttonlogin.Name = "buttonlogin";
+            this.buttonlogin.Size = new System.Drawing.Size(130, 36);
+            this.buttonlogin.TabIndex = 11;
+            this.buttonlogin.UseVisualStyleBackColor = true;
+            this.buttonlogin.Click += new System.EventHandler(this.Buttonlogin_Click);
+            // 
             // Loginpopu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(501, 554);
+            this.ClientSize = new System.Drawing.Size(484, 463);
+            this.Controls.Add(this.buttonlogin);
             this.Controls.Add(this.butLogin);
             this.Controls.Add(this.email);
             this.Controls.Add(this.senha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Loginpopu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loginpopu";
             this.Load += new System.EventHandler(this.Loginpopu_Load);
             this.ResumeLayout(false);
@@ -98,5 +111,6 @@
         private System.Windows.Forms.TextBox senha;
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Button butLogin;
+        private System.Windows.Forms.Button buttonlogin;
     }
 }

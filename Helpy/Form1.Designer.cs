@@ -119,7 +119,6 @@
             this.usuario.TabIndex = 12;
             this.usuario.Text = "Nome de usuário";
             this.usuario.Click += new System.EventHandler(this.usuario_Click_1);
-            
             // 
             // userBindingSource
             // 

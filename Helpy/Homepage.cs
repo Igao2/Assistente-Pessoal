@@ -49,5 +49,44 @@ namespace Helpy
         {
             Application.Exit();
         }
+
+        private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void Button2_MouseEnter(object sender, EventArgs e)
+        {
+            Compromissos.BackColor = Color.FromArgb(255, 255, 255);
+        }
+
+        private void Button2_MouseLeave(object sender, EventArgs e)
+        {
+            Compromissos.BackColor = Color.FromArgb(173, 122, 181);
+        }
+
+        private void Compromissos_MouseEnter(object sender, EventArgs e)
+        {
+            Tarefas.BackColor = Color.FromArgb(255, 255, 255);
+        }
+
+        private void Compromissos_MouseLeave(object sender, EventArgs e)
+        {
+            Tarefas.BackColor = Color.FromArgb(173, 122, 181);
+        }
+
+        private void Compromissos_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void Compromissos_Click_1(object sender, EventArgs e)
+        {
+            this.formLoader.Controls.Clear();
+            Compromisso com = new Compromisso() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            this.formLoader.Controls.Add(com);
+            com.Show();
+        }
     }
 }
