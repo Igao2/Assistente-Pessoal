@@ -27,13 +27,15 @@ namespace Helpy
         {
             Calendario cal = new Calendario();
             User u = new User();
-            int a = count;
+            int a = cal.getcontItem();
             cal.setEvento(u.getposAtual(), textBox1.Text, textBox2.Text, textBox3.Text);
+            cal.setcontItem();
             List<Tuple<int, string, string, string>> b = cal.getEvento();
             ListViewItem item = new ListViewItem(b[a].Item4);
             item.SubItems.Add(b[a].Item2);
             item.SubItems.Add(b[a].Item3);
             listView1.Items.Add(item);
+           
             count++;
         }
 
@@ -48,9 +50,9 @@ namespace Helpy
             Calendario cal = new Calendario();
             List<Tuple<int, string, string, string>> b = new List<Tuple<int, string, string, string>>();
             int pos = u.getposAtual();
-            if (cal.getEvento().Count() > 0)
+            if (cal.getcontItem() > 0)
             {
-                for (int i = 0; i < u.getCount(); i++)
+                for (int i = 0; i < cal.getcontItem(); i++)
                 {
                     b = cal.getEvento();
                     if (b[i].Item1 == u.getposAtual())

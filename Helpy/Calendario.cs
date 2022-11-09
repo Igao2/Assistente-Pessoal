@@ -10,6 +10,16 @@ namespace Helpy
     {
         public static List<Tuple<int,string,string,string>> evento = new List<Tuple<int,string,string,string>>();
         public static List<Tuple<int, string>> tarefa = new List<Tuple<int, string>>();
+        public static int contitem = 0;
+
+        public int getcontItem()
+        {
+            return contitem;
+        }
+        public void setcontItem()
+        {
+            contitem++;
+        }
         public List<Tuple<int,string,string,string>> getEvento()
         {
             return evento;
