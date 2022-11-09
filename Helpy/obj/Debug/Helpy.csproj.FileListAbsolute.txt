@@ -35,3 +35,4 @@ C:\Users\aluno\Desktop\Enari\Helpy\obj\Debug\Helpy.pdb
 C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.Homepage.resources
 C:\Users\aluno\Desktop\Enari\Helpy\obj\Debug\Helpy.Homepage.resources
 C:\Users\aluno\Desktop\Enari\Helpy\obj\Debug\Helpy.Compromisso.resources
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.Compromisso.resources

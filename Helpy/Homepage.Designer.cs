@@ -32,7 +32,7 @@
             this.Compromissos = new System.Windows.Forms.Button();
             this.Tarefas = new System.Windows.Forms.Button();
             this.formLoader = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.butlogoff = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Compromissos
@@ -76,14 +76,14 @@
             this.formLoader.Size = new System.Drawing.Size(856, 479);
             this.formLoader.TabIndex = 13;
             // 
-            // button1
+            // butlogoff
             // 
-            this.button1.Location = new System.Drawing.Point(856, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(10, 53);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.butlogoff.Location = new System.Drawing.Point(859, 2);
+            this.butlogoff.Name = "butlogoff";
+            this.butlogoff.Size = new System.Drawing.Size(75, 54);
+            this.butlogoff.TabIndex = 14;
+            this.butlogoff.UseVisualStyleBackColor = true;
+            this.butlogoff.Click += new System.EventHandler(this.butlogoff_Click);
             // 
             // Homepage
             // 
@@ -92,7 +92,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 544);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.butlogoff);
             this.Controls.Add(this.formLoader);
             this.Controls.Add(this.Tarefas);
             this.Controls.Add(this.Compromissos);
@@ -111,6 +111,6 @@
         private System.Windows.Forms.Button Compromissos;
         private System.Windows.Forms.Button Tarefas;
         private System.Windows.Forms.Panel formLoader;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button butlogoff;
     }
 }

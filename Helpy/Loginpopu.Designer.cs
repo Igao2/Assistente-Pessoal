@@ -101,6 +101,7 @@
             this.Name = "Loginpopu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loginpopu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Loginpopu_FormClosing);
             this.Load += new System.EventHandler(this.Loginpopu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

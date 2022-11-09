@@ -16,5 +16,59 @@ namespace Helpy
         {
             InitializeComponent();
         }
+        public int count = 0;
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Calendario cal = new Calendario();
+            User u = new User();
+            int a = count;
+            cal.setEvento(u.getposAtual(), textBox1.Text, textBox2.Text, textBox3.Text);
+            List<Tuple<int, string, string, string>> b = cal.getEvento();
+            ListViewItem item = new ListViewItem(b[a].Item4);
+            item.SubItems.Add(b[a].Item2);
+            item.SubItems.Add(b[a].Item3);
+            listView1.Items.Add(item);
+            count++;
+        }
+
+        private void Compromisso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void Compromisso_Load(object sender, EventArgs e)
+        {
+            User u = new User();
+            Calendario cal = new Calendario();
+            List<Tuple<int, string, string, string>> b = new List<Tuple<int, string, string, string>>();
+            int pos = u.getposAtual();
+            if (cal.getEvento().Count() > 0)
+            {
+                for (int i = 0; i < u.getCount(); i++)
+                {
+                    b = cal.getEvento();
+                    if (b[i].Item1 == u.getposAtual())
+                    {
+                        ListViewItem item = new ListViewItem(b[i].Item4);
+                        item.SubItems.Add(b[i].Item2);
+                        item.SubItems.Add(b[i].Item3);
+                        listView1.Items.Add(item);
+                    }
+                }
+            }
+           
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

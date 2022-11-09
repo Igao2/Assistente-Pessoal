@@ -15,7 +15,11 @@ namespace Helpy
         public Homepage()
         {
             InitializeComponent();
-          
+            butlogoff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            butlogoff.FlatAppearance.BorderSize = 0;
+            butlogoff.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            butlogoff.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            butlogoff.BackColor = Color.Transparent;
         }
 
         private void Homepage_Load(object sender, EventArgs e)
@@ -87,6 +91,13 @@ namespace Helpy
             Compromisso com = new Compromisso() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.formLoader.Controls.Add(com);
             com.Show();
+        }
+
+        private void butlogoff_Click(object sender, EventArgs e)
+        {
+            Cadastro cad = new Cadastro();
+            this.Hide();
+            cad.Show();
         }
     }
 }

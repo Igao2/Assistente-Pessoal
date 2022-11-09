@@ -24,7 +24,7 @@ namespace Helpy
         }
         public int em = 0;
         public int pas = 0;
-
+        bool lgin = false;
         private void Loginpopu_Load(object sender, EventArgs e)
         {
 
@@ -78,32 +78,44 @@ namespace Helpy
 
         private void Buttonlogin_Click(object sender, EventArgs e)
         {
+           
             User u = new User();
             List<Tuple<string, string, string, string>> a = u.getUsuario();
             int contador = u.getCount();
-
+           
             for (int i = 0; i < contador; i++)
             {
-                if (a[i].Item2 == email.Text && a[i].Item4 == senha.Text)
-                {
-                   
-                    u.setposAtual(i);
-                    Homepage h = new Homepage();
-                    Cadastro cad = new Cadastro();
-                    cad.Hide();
-                    this.Hide();
-                    h.Closed += (s, args) => this.Close();
+
+                
+                    if (a[i].Item2 == email.Text && a[i].Item4 == senha.Text)
+                    {
+
+                        u.setposAtual(i);
+                        Homepage h = new Homepage();
+                        Cadastro cad = new Cadastro();
+                        cad.Hide();
+                        this.Close();
+                     
+                    lgin = true;
 
                     h.Show();
 
 
-                }
-                else
-                {
-                    MessageBox.Show("Email e/ou Senha incorreto(s)!!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error); ;
-                }
+                    }
+                    
+                
+                
 
             }
+            
+            if(lgin==false)
+            {
+                MessageBox.Show("Email e/ou Senha incorreto(s)!!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
+        }
+
+        private void Loginpopu_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }
