@@ -28,15 +28,19 @@ namespace Helpy
             Calendario cal = new Calendario();
             User u = new User();
             int a = cal.getcontItem();
+            
             cal.setEvento(u.getposAtual(), textBox1.Text, textBox2.Text, textBox3.Text);
-            cal.setcontItem();
+            
             List<Tuple<int, string, string, string>> b = cal.getEvento();
-            ListViewItem item = new ListViewItem(b[a].Item4);
-            item.SubItems.Add(b[a].Item2);
+            ListViewItem item = listView1.Items.Add(b[a].Item2);
+            item.SubItems.Add(b[a].Item4);
             item.SubItems.Add(b[a].Item3);
-            listView1.Items.Add(item);
-           
+            
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
             count++;
+            cal.setcontItem();
         }
 
         private void Compromisso_FormClosing(object sender, FormClosingEventArgs e)
@@ -61,8 +65,12 @@ namespace Helpy
                         item.SubItems.Add(b[i].Item2);
                         item.SubItems.Add(b[i].Item3);
                         listView1.Items.Add(item);
+                        
                     }
                 }
+                count--;
+              
+                
             }
            
 
@@ -70,7 +78,39 @@ namespace Helpy
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ListViewItem list = new ListViewItem();
+            
+           
+        }
 
+        private void listView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Delete)
+            {
+                Calendario cal = new Calendario();
+                User u = new User();
+                int iteM = cal.getcontItem();
+                ListViewItem list = new ListViewItem();
+                list = listView1.SelectedItems[0];
+                
+                
+                for(int i = 0; i <iteM;i++)
+                {
+                    List<Tuple<int,string,string,string>> b = cal.getEvento();
+                    
+                    if (b[i].Item2 ==list.Text)
+                    {
+                        cal.delEvento(i);
+                    }
+                    
+                    
+                }
+                listView1.Items.Remove(list);
+                cal.contmenosItem();
+
+
+            }
+            
         }
     }
 }

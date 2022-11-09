@@ -33,6 +33,7 @@
             this.Tarefas = new System.Windows.Forms.Button();
             this.formLoader = new System.Windows.Forms.Panel();
             this.butlogoff = new System.Windows.Forms.Button();
+            this.butHome = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Compromissos
@@ -85,6 +86,17 @@
             this.butlogoff.UseVisualStyleBackColor = true;
             this.butlogoff.Click += new System.EventHandler(this.butlogoff_Click);
             // 
+            // butHome
+            // 
+            this.butHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butHome.Location = new System.Drawing.Point(-2, 2);
+            this.butHome.Name = "butHome";
+            this.butHome.Size = new System.Drawing.Size(96, 54);
+            this.butHome.TabIndex = 0;
+            this.butHome.UseVisualStyleBackColor = true;
+            this.butHome.Click += new System.EventHandler(this.butHome_Click);
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -92,6 +104,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 544);
+            this.Controls.Add(this.butHome);
             this.Controls.Add(this.butlogoff);
             this.Controls.Add(this.formLoader);
             this.Controls.Add(this.Tarefas);
@@ -112,5 +125,6 @@
         private System.Windows.Forms.Button Tarefas;
         private System.Windows.Forms.Panel formLoader;
         private System.Windows.Forms.Button butlogoff;
+        private System.Windows.Forms.Button butHome;
     }
 }

@@ -20,6 +20,10 @@ namespace Helpy
         {
             contitem++;
         }
+        public void contmenosItem()
+        {
+            contitem--;
+        }
         public List<Tuple<int,string,string,string>> getEvento()
         {
             return evento;
@@ -27,6 +31,17 @@ namespace Helpy
         public void setEvento(int pos,string nome,string descricao, string data)
         {
             evento.Add(Tuple.Create(pos,nome,descricao,data));
+        }
+        public void delEvento(int nome)
+        {
+
+
+
+            evento.RemoveAt(nome);
+                    
+                
+            
+            
         }
         public List<Tuple<int,string>> getTarefa()
         {

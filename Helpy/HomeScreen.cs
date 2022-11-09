@@ -22,7 +22,7 @@ namespace Helpy
             User u = new User();
             int posatual = u.getposAtual();
             int contador = cal.getcontItem();
-            if (contador >= 0)
+            if (contador > 0)
             {
                 for (int i = 0; i < contador; i++)
 

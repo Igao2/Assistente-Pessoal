@@ -102,5 +102,13 @@ namespace Helpy
             this.Hide();
             cad.Show();
         }
+
+        private void butHome_Click(object sender, EventArgs e)
+        {
+            this.formLoader.Controls.Clear();
+            HomeScreen hs = new HomeScreen() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            this.formLoader.Controls.Add(hs);
+            hs.Show();
+        }
     }
 }
