@@ -26,7 +26,7 @@ namespace Helpy
             string a = textBox1.Text;
             for(int i = 0; i < contador; i++)
             {
-                if (b[i].Item1 == a)
+                if (b[i].Item1 == a && b[u.getposAtual()].Item1 !=a)
                 {
                     am.setPosamigo(i);
                     am.setSolicitacao(am.getPosamigo(), b[i].Item1);

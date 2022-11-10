@@ -23,6 +23,7 @@ namespace Helpy
         public int ema = 0;
         public int tel = 0;
         public int pass = 0;
+        bool uR = true;
         
         public Cadastro()
         {
@@ -50,6 +51,7 @@ namespace Helpy
       
         private void Button2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Loginpopu loginpopu = new Loginpopu();
           
             loginpopu.Show();
@@ -97,24 +99,63 @@ namespace Helpy
                 if (email.Text.Contains(arroba) && email.Text.Contains(com))
                 {
                     User u = new User();
+                    List<Tuple<string, string, string, string>> b = u.getUsuario();
+                    if(u.getCount()>0)
+                    {
+                        for(int i = 0; i < b.Count; i++)
+                        {
+                            if (b[i].Item1 == usuario.Text || b[i].Item2 == email.Text )
+                            {
+                                DialogResult dr = MessageBox.Show("Usuário já cadastrado!");
+                                usuario.Text = originalUsuario;
+                                email.Text = originalEmail;
+                                telefone.Text = originalTelefone;
+                                senha.Text = originalSenha;
+                                uR = false;
+                            }
+                            
+                        }
+                        if (uR)
+                        {
+                            u.setUsuario(usuario.Text, email.Text, telefone.Text, senha.Text);
+                            List<Tuple<string, string, string, string>> t = u.getUsuario();
 
-                    u.setUsuario(usuario.Text, email.Text, telefone.Text, senha.Text);
-                    List<Tuple<string, string, string, string>> t = u.getUsuario();
-                   
-                    MessageBox.Show("Cadastro realizado com sucesso, seja bem vindo " + t[u.getCount()].Item1 +" ", "Mensagem do Sistema",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    u.setCount(1);
-                    usuario.Text = originalUsuario;
-                    email.Text = originalEmail;
-                    telefone.Text = originalTelefone;
-                    senha.Text = originalSenha;
-                    this.Hide();
-                    Loginpopu login = new Loginpopu();
-                    login.Show();
+                            MessageBox.Show("Cadastro realizado com sucesso, seja bem vindo " + t[u.getCount()].Item1 + " ", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            u.setCount(1);
+                            usuario.Text = originalUsuario;
+                            email.Text = originalEmail;
+                            telefone.Text = originalTelefone;
+                            senha.Text = originalSenha;
+                            this.Hide();
+                            Loginpopu login = new Loginpopu();
+                            login.Show();
+                        }
+                        
+                    }
+                    else
+                    {
+                        u.setUsuario(usuario.Text, email.Text, telefone.Text, senha.Text);
+                        List<Tuple<string, string, string, string>> t = u.getUsuario();
+
+                        MessageBox.Show("Cadastro realizado com sucesso, seja bem vindo " + t[u.getCount()].Item1 + " ", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        u.setCount(1);
+                        usuario.Text = originalUsuario;
+                        email.Text = originalEmail;
+                        telefone.Text = originalTelefone;
+                        senha.Text = originalSenha;
+                        this.Hide();
+                        Loginpopu login = new Loginpopu();
+                        login.Show();
+
+                    }
+                    
                 }
                 else
                 {
                     MessageBox.Show("E-mail inválido", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+
+
             }
             else
             {

@@ -93,7 +93,7 @@ namespace Helpy
                         u.setposAtual(i);
                         Homepage h = new Homepage();
                         Cadastro cad = new Cadastro();
-                        cad.Hide();
+                        
                         this.Close();
                      
                     lgin = true;
@@ -116,6 +116,12 @@ namespace Helpy
 
         private void Loginpopu_FormClosing(object sender, FormClosingEventArgs e)
         {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
