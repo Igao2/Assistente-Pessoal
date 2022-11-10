@@ -17,6 +17,8 @@ namespace Helpy
             InitializeComponent();
         }
         bool find = false;
+        string meunome;
+        string nomeamigo;
         private void button1_Click(object sender, EventArgs e)
         {
             User u = new User();
@@ -29,7 +31,7 @@ namespace Helpy
                 if (b[i].Item1 == a && b[u.getposAtual()].Item1 !=a)
                 {
                     am.setPosamigo(i);
-                    am.setSolicitacao(am.getPosamigo(), b[i].Item1);
+                    am.setSolicitacao(am.getPosamigo(), b[u.getposAtual()].Item1);
                     MessageBox.Show("Solicitação de amizade enviada", "Mensagem do Sistema", MessageBoxButtons.OK);
                     find = true;
                 }
@@ -54,36 +56,40 @@ namespace Helpy
             int contador = u.getCount();
             if ( s.Count > 1)
             {
-                for (int i = 0; i < contador; i++)
+                if (b.Count > 0)
                 {
-                    if (b.Count > 0)
+                    for (int i = 0; i < s.Count; i++)
                     {
+
                         if (b[i].Item1 == pos)
                         {
-                            string name= b[i].Item2;
+                            nomeamigo = b[i].Item2;
+                            meunome = s[pos].Item1;
                             DialogResult dr = MessageBox.Show("O usuário " + b[i].Item2 + " Lhe enviou uma solicitação de amizade,deseja aceitar?", "Mensagem do Sistema", MessageBoxButtons.YesNoCancel);
                             if (dr == DialogResult.Yes)
                             {
-                                for (int j = 0; j < contador; j++)
+                                for (int j = 0; j < s.Count; j++)
                                 {
-                                    if (s[j].Item1 == name)
+                                    if (s[j].Item1 == nomeamigo)
                                     {
                                         pos2 = j;
-                                        am.setAmigo(pos2, name);
-                                        am.setAmigo(pos, s[j].Item1);
-                                        am.delSolicitacao(j);
+                                        
+                                        am.setAmigo(pos,nomeamigo);
+                                        am.setAmigo(pos2,meunome);
+                                        
                                     }
                                 }
                             }
                             else
                             {
-                                am.delSolicitacao(i);
+                                am.delSolicitacao(0);
                             }
+                            break;
                         }
-                    }
-                    
 
-                }
+
+                    }
+                }   
             }
         }
     }

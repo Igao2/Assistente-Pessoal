@@ -11,6 +11,17 @@ namespace Helpy
         public static List<Tuple<int,string>> solicitacao = new List<Tuple<int,string>>();
         public static List<Tuple<int, string>> amigo = new List<Tuple<int, string>>();
         public static int posAmigo = 0;
+        public static bool tRue = false;
+
+        public bool gettRue()
+        {
+            return tRue;
+        }
+        public void settRue()
+        {
+
+            tRue = true;
+        }
 
         public List<Tuple<int, string>> getSolicitacao()
         {

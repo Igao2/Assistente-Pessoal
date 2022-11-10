@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Helpy
 {
@@ -19,6 +20,7 @@ namespace Helpy
         public int count = 0;
         bool find = false;
         string meunome;
+        string name;
         int posamigo;
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -30,16 +32,18 @@ namespace Helpy
             Calendario cal = new Calendario();
             User u = new User();
             int a = cal.getcontItem();
-            
-            if(find)
+            Amigo am = new Amigo();
+            if(am.gettRue()==true)
             {
                 cal.setEvento(u.getposAtual(), textBox1.Text, textBox2.Text, textBox3.Text);
+                meunome = textBox1.Text + "(" + meunome + ")";
+                cal.setEvento(posamigo, meunome, textBox2.Text, textBox3.Text);
                 List<Tuple<int, string, string, string>> b = cal.getEvento();
                 ListViewItem item = listView1.Items.Add(b[a].Item2);
                 item.SubItems.Add(b[a].Item4);
                 item.SubItems.Add(b[a].Item3);
-                meunome = textBox1.Text + "(" + meunome + ")";
-                cal.setEvento(posamigo, meunome, textBox2.Text, textBox3.Text);
+               
+                
             }
             else
             {
@@ -140,32 +144,49 @@ namespace Helpy
             List<Tuple<int, string>> b = am.getAmigo();
             if (b.Count > 1)
             {
-                for (int i = 0; i < u.getCount(); i++)
+                for (int i = 0; i < b.Count; i++)
                 {
                     
-                    if (i==pos)
+                    if (b[i].Item1==pos)
                     {
                         meunome = a[i].Item1;
-                        if (b[i].Item1 == pos)
-                        {
-                            string name = b[i].Item2;
+                        
+                             name = b[i].Item2;
                            
                             for (int j = 0; j < u.getCount(); j++)
                             {
-                                if (a[i].Item1 == name)
+                                if (a[j].Item1 == name)
                                 {
-
+                                label1.Text = a[j].Item1;
                                     posamigo = j;
-                                    MessageBox.Show("Usuário " + name + " adicionado ao proximo evento", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    find = true;
+
+                               
                                 }
                                 
                             }
-                        }
+                        am.settRue();
+                        
                     }
                     
                 }
+                if (am.gettRue()==true)
+                {
+                    MessageBox.Show("Usuário " + name + " adicionado ao proximo evento", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+        }
+    }
+    public partial class True
+    {
+        public static bool a = false;
+        public bool getA()
+        {
+            return a;
+        }
+        public void setA(bool b)
+        {
+            b = true;
+            a = b;
         }
     }
 }
