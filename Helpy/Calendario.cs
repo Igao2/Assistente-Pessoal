@@ -34,13 +34,7 @@ namespace Helpy
         }
         public void delEvento(int nome)
         {
-
-
-
             evento.RemoveAt(nome);
-                    
-                
-            
             
         }
         public List<Tuple<int,string>> getTarefa()

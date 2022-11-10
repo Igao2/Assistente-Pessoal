@@ -34,6 +34,7 @@
             this.formLoader = new System.Windows.Forms.Panel();
             this.butlogoff = new System.Windows.Forms.Button();
             this.butHome = new System.Windows.Forms.Button();
+            this.Amigos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Compromissos
@@ -97,6 +98,21 @@
             this.butHome.UseVisualStyleBackColor = true;
             this.butHome.Click += new System.EventHandler(this.butHome_Click);
             // 
+            // Amigos
+            // 
+            this.Amigos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(122)))), ((int)(((byte)(181)))));
+            this.Amigos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Amigos.BackgroundImage")));
+            this.Amigos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Amigos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(122)))), ((int)(((byte)(181)))));
+            this.Amigos.FlatAppearance.BorderSize = 0;
+            this.Amigos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Amigos.Location = new System.Drawing.Point(-2, 268);
+            this.Amigos.Name = "Amigos";
+            this.Amigos.Size = new System.Drawing.Size(64, 64);
+            this.Amigos.TabIndex = 15;
+            this.Amigos.UseVisualStyleBackColor = false;
+            this.Amigos.Click += new System.EventHandler(this.Amigos_Click);
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +120,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 544);
+            this.Controls.Add(this.Amigos);
             this.Controls.Add(this.butHome);
             this.Controls.Add(this.butlogoff);
             this.Controls.Add(this.formLoader);
@@ -126,5 +143,6 @@
         private System.Windows.Forms.Panel formLoader;
         private System.Windows.Forms.Button butlogoff;
         private System.Windows.Forms.Button butHome;
+        private System.Windows.Forms.Button Amigos;
     }
 }

@@ -20,6 +20,10 @@ namespace Helpy
         {
             solicitacao.Add(Tuple.Create(posamigo,nome));
         }
+        public void delSolicitacao(int a)
+        {
+            solicitacao.RemoveAt(a);
+        }
         public List<Tuple<int, string>> getAmigo()
         {
             return amigo;

@@ -20,6 +20,7 @@ namespace Helpy
             butlogoff.FlatAppearance.MouseDownBackColor = Color.Transparent;
             butlogoff.FlatAppearance.MouseOverBackColor = Color.Transparent;
             butlogoff.BackColor = Color.Transparent;
+            
         }
 
         private void Homepage_Load(object sender, EventArgs e)
@@ -28,6 +29,7 @@ namespace Helpy
              HomeScreen hs= new HomeScreen() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.formLoader.Controls.Add(hs);
             hs.Show();
+            
         }
 
         private void Homepage_FormClosing(object sender, FormClosingEventArgs e)
@@ -109,6 +111,14 @@ namespace Helpy
             HomeScreen hs = new HomeScreen() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.formLoader.Controls.Add(hs);
             hs.Show();
+        }
+
+        private void Amigos_Click(object sender, EventArgs e)
+        {
+            this.formLoader.Controls.Clear();
+            Friendpage fp = new Friendpage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            this.formLoader.Controls.Add(fp);
+            fp.Show();
         }
     }
 }
