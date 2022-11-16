@@ -18,12 +18,7 @@ namespace Helpy
             InitializeComponent();
             Calendario cal = new Calendario();
             List<Tuple<int, string, string, string>> b = cal.getEvento();
-            for(int i = 0; i<b.Count;i++)
-            {
-                
-                listBox1.Items.Add(b[i]);
-                
-            }
+            
         }
         public int count = 0;
         bool find = false;
@@ -43,24 +38,21 @@ namespace Helpy
             Amigo am = new Amigo();
             if(am.gettRue()==true)
             {
-                cal.setEvento(u.getposAtual(), textBox1.Text, textBox2.Text, textBox3.Text);
-                meunome = "("+meunome+")"+" "+textBox1.Text;
-                cal.setEvento(posamigo, meunome, textBox2.Text, textBox3.Text);
+                cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
+                meunome = "-"+meunome+"-"+textBox1.Text;
+                label1.Text = meunome;
+                cal.setEvento(posamigo, meunome, maskedTextBox1.Text, maskedTextBox2.Text);
                 List<Tuple<int, string, string, string>> b = cal.getEvento();
-                ListViewItem item = listView1.Items.Add(b[a].Item2);
-                item.SubItems.Add(b[a].Item4);
-                item.SubItems.Add(b[a].Item3);
+                
                 cal.setcontItem();
-               
+                cal.setcontItem();
                 
             }
             else
             {
-                cal.setEvento(u.getposAtual(), textBox1.Text, textBox2.Text, textBox3.Text);
+                cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
                 List<Tuple<int, string, string, string>> b = cal.getEvento();
-                ListViewItem item = listView1.Items.Add(b[a].Item2);
-                item.SubItems.Add(b[a].Item4);
-                item.SubItems.Add(b[a].Item3);
+               
                 cal.setcontItem();
             }
            
@@ -68,8 +60,8 @@ namespace Helpy
            
             
             textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
+            maskedTextBox2.Text = "";
+            maskedTextBox1.Text = "";
             count++;
             
         }
@@ -85,24 +77,7 @@ namespace Helpy
             Calendario cal = new Calendario();
             List<Tuple<int, string, string, string>> b = new List<Tuple<int, string, string, string>>();
             int pos = u.getposAtual();
-            if (cal.getcontItem() > 0)
-            {
-                for (int i = 0; i < cal.getcontItem(); i++)
-                {
-                    b = cal.getEvento();
-                    if (b[i].Item1 == u.getposAtual())
-                    {
-                        ListViewItem item = new ListViewItem(b[i].Item2);
-                        item.SubItems.Add(b[i].Item4);
-                        item.SubItems.Add(b[i].Item3);
-                        listView1.Items.Add(item);
-                        
-                    }
-                }
-                count--;
-              
-                
-            }
+            
            
 
         }
@@ -122,7 +97,7 @@ namespace Helpy
                 User u = new User();
                 int iteM = cal.getcontItem();
                 ListViewItem list = new ListViewItem();
-                list = listView1.SelectedItems[0];
+                
                 
                 
                 for(int i = 0; i <iteM;i++)
@@ -136,7 +111,7 @@ namespace Helpy
                     
                     
                 }
-                listView1.Items.Remove(list);
+                
                 cal.contmenosItem();
 
 
@@ -159,7 +134,7 @@ namespace Helpy
                     
                     if (b[i].Item1==pos)
                     {
-                        meunome = a[i].Item1;
+                        meunome = a[pos].Item1;
                         
                              name = b[i].Item2;
                            
@@ -167,8 +142,10 @@ namespace Helpy
                             {
                                 if (a[j].Item1 == name)
                                 {
-                                label1.Text = a[j].Item1;
+                                
                                     posamigo = j;
+                                label1.Text = meunome;
+                                label2.Text = posamigo.ToString();
 
                                
                                 }

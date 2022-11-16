@@ -28,7 +28,7 @@ namespace Helpy
             {
                 for (int i = 0; i < conT; i++)
                 {
-                    
+                    listBox1.Items.Add(eve[i]);
                     if (eve[i].Item1 == posatual)
                     {
                         ListViewItem item = new ListViewItem(eve[i].Item2);
@@ -72,33 +72,41 @@ namespace Helpy
             string date = dat.ToShortDateString();
             
             List<Tuple<int, string, string, string>> n = cal.getEvento();
-            
+            int poss = u.getposAtual();
             if (contador > 0)
             {
                 
                 string a = "Compromissos: ";
                 for (int i = 0; i < contador; i++)
                 {
-                    if (n[i].Item1 == u.getposAtual())
+                    if (n[i].Item1 == poss)
                     {
                         if(n[i].Item4.Contains(date))
                         {
                             a = a +
                                 "\n" + n[i].Item2 + "Horário: " + n[i].Item3;
+
+                            if (a != "Compromissos: ")
+                            {
+                                label1.Text = date + " " + a;
+                            }
+                            else
+                            {
+                                label1.Text = dat.ToShortDateString() + " Sem compromissos";
+                            }
                         }
-                        
+                       
+
                     }
-                    
+                    else
+                    {
+                        label1.Text = dat.ToShortDateString() + " Sem compromissos";
+                    }
+                   
+
 
                 }
-                if (a != "Compromissos: ")
-                {
-                    label1.Text = date + " " + a;
-                }
-                else
-                {
-                    label1.Text = dat.ToShortDateString() + " Sem compromissos";
-                }
+               
 
 
             }
@@ -123,6 +131,8 @@ namespace Helpy
 
         private void calAtual_DateSelected(object sender, DateRangeEventArgs e)
         {
+            User u = new User();
+            int poss = u.getposAtual();
             DateTime dat = new DateTime();
             dat = calAtual.SelectionStart;
             string date = dat.ToShortDateString();
@@ -134,11 +144,15 @@ namespace Helpy
                 string a = "Compromissos: ";
                 for (int i = 0; i < contador; i++)
                 {
-                    if (n[i].Item4.Contains(date))
+                    if (n[i].Item1 == poss)
                     {
-                        a = a +
-                            "\n" + n[i].Item2 + "Horário: " + n[i].Item3;
+                        if (n[i].Item4.Contains(date))
+                        {
+                            a = a +
+                                "\n" + n[i].Item2 + "Horário: " + n[i].Item3;
+                        }
                     }
+                  
                    
                 }
                     if(a!= "Compromissos: ")
