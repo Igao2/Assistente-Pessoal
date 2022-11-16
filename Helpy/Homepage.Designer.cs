@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Homepage));
             this.Compromissos = new System.Windows.Forms.Button();
             this.Tarefas = new System.Windows.Forms.Button();
@@ -35,6 +36,8 @@
             this.butlogoff = new System.Windows.Forms.Button();
             this.butHome = new System.Windows.Forms.Button();
             this.Amigos = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // Compromissos
@@ -113,6 +116,22 @@
             this.Amigos.UseVisualStyleBackColor = false;
             this.Amigos.Click += new System.EventHandler(this.Amigos_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(330, -4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 63);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "label1";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,6 +139,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 544);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Amigos);
             this.Controls.Add(this.butHome);
             this.Controls.Add(this.butlogoff);
@@ -134,6 +154,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Homepage_FormClosing);
             this.Load += new System.EventHandler(this.Homepage_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -144,5 +165,7 @@
         private System.Windows.Forms.Button butlogoff;
         private System.Windows.Forms.Button butHome;
         private System.Windows.Forms.Button Amigos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

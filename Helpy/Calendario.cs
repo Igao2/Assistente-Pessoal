@@ -11,8 +11,22 @@ namespace Helpy
         public static List<Tuple<int,string,string,string>> evento = new List<Tuple<int,string,string,string>>();
         public static List<Tuple<int, string>> tarefa = new List<Tuple<int, string>>();
         public static int contitem = 0;
-
-        public int getcontItem()
+        public static int contarefa = 0;
+        
+        public int getcontTarefa()
+        {
+            return contarefa;
+        }
+        public void setcontTarefa()
+        {
+            contarefa++;
+        }
+        public void delcontTarefa()
+        {
+            contarefa--;
+        }
+            
+            public int getcontItem()
         {
             return contitem;
         }
@@ -44,6 +58,10 @@ namespace Helpy
         public void setTarefa(int pos,string nome)
         {
             tarefa.Add(Tuple.Create(pos, nome));
+        }
+        public void removeTarefa(int z)
+        {
+            tarefa.RemoveAt(z);
         }
     }
 }

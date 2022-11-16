@@ -18,7 +18,7 @@ namespace Helpy
         {
             InitializeComponent();
             User u = new User();
-            label2.Text = u.getposAtual().ToString();
+            
             Calendario cal = new Calendario();
             List<Tuple<int, string, string, string>> eve = cal.getEvento();
             int posatual = u.getposAtual();
@@ -28,7 +28,7 @@ namespace Helpy
             {
                 for (int i = 0; i < conT; i++)
                 {
-                    listBox1.Items.Add(eve[i]);
+                    
                     if (eve[i].Item1 == posatual)
                     {
                         ListViewItem item = new ListViewItem(eve[i].Item2);
@@ -75,41 +75,31 @@ namespace Helpy
             int poss = u.getposAtual();
             if (contador > 0)
             {
-                
+
                 string a = "Compromissos: ";
                 for (int i = 0; i < contador; i++)
                 {
                     if (n[i].Item1 == poss)
                     {
-                        if(n[i].Item4.Contains(date))
+                        if (n[i].Item4.Contains(date))
                         {
                             a = a +
-                                "\n" + n[i].Item2 + "Horário: " + n[i].Item3;
-
-                            if (a != "Compromissos: ")
-                            {
-                                label1.Text = date + " " + a;
-                            }
-                            else
-                            {
-                                label1.Text = dat.ToShortDateString() + " Sem compromissos";
-                            }
+                                "\n" + n[i].Item2 + ","+ "horário: " + n[i].Item3;
                         }
-                       
-
                     }
-                    else
-                    {
-                        label1.Text = dat.ToShortDateString() + " Sem compromissos";
-                    }
-                   
-
-
                 }
-               
+                if (a != "Compromissos: ")
+                {
+                    label1.Text = date + " " + a;
+                }
+                else
+                {
+                    label1.Text = dat.ToShortDateString() + " Sem compromissos";
+                }
 
 
             }
+
             else
             {
 

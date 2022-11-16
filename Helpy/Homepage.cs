@@ -23,7 +23,7 @@ namespace Helpy
             butlogoff.BackColor = Color.Transparent;
             
         }
-
+        bool aviso = false;
         private void Homepage_Load(object sender, EventArgs e)
         {
             this.formLoader.Controls.Clear();
@@ -87,7 +87,10 @@ namespace Helpy
 
         private void Compromissos_Click(object sender, EventArgs e)
         {
-            
+            this.formLoader.Controls.Clear();
+            Tasks tas = new Tasks() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            this.formLoader.Controls.Add(tas);
+            tas.Show();
 
         }
 
@@ -120,6 +123,51 @@ namespace Helpy
             Friendpage fp = new Friendpage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.formLoader.Controls.Add(fp);
             fp.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = new DateTime();
+            dt = DateTime.Now;
+            label1.Text = DateTime.Now.ToString("HH:mm:ss");
+            Calendario cal = new Calendario();
+            User u = new User();
+            int posatual = u.getposAtual();
+            List<Tuple<int, string,string,string>> b = cal.getEvento();
+            int contador = cal.getcontItem();
+            int pos = 0;
+            string evento = " ";
+            if(contador>0)
+            {
+                for(int i = 0;i<contador;i++)
+                {
+                    if (b[i].Item1 == posatual)
+                    {
+                        if (aviso==false)
+                        {
+                            if (b[i].Item3 == DateTime.Now.ToString("HH:mm") && b[i].Item4 == DateTime.Now.ToString("dd/MM/yyyy"))
+                            {
+                                evento = b[i].Item2;
+                                pos = i;
+                                aviso = true;
+
+                            }
+                        }
+                        
+                    }
+                }
+                if(aviso==true)
+                {
+                    timer1.Stop();
+                    MessageBox.Show("Você tem compromisso: \n" + evento + " !!" ,"Mensagem do Sistema",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    cal.delEvento(pos);
+                    cal.contmenosItem();
+                    aviso = false;
+                    timer1.Start();
+                }
+                
+
+            }
         }
     }
 }
