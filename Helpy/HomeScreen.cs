@@ -55,5 +55,43 @@ namespace Helpy
         {
 
         }
+
+        private void calAtual_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            DateTime dat = new DateTime();
+            dat = calAtual.SelectionStart;
+            string date = dat.ToShortDateString();
+            Calendario cal = new Calendario();
+            List<Tuple<int, string, string, string>> n = cal.getEvento();
+            int contador = cal.getcontItem();
+                if(contador > 0)
+            {
+                string a = "Eventos: ";
+                for (int i = 0; i < contador; i++)
+                {
+                    if (n[i].Item4.Contains(date))
+                    {
+                        a = a +" "+
+                            " " + n[i].Item2;
+                    }
+                   
+                }
+                if(a!= "Eventos: ")
+                {
+                    label1.Text = date + " "+ a;
+                }
+                else
+                {
+                    label1.Text = dat.ToShortDateString();
+                }
+                 
+            }
+            else
+            {
+
+                label1.Text = dat.ToShortDateString();
+            }
+
+        }
     }
 }
