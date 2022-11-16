@@ -133,7 +133,7 @@
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Descrição";
+            this.columnHeader2.Text = "Horário";
             this.columnHeader2.Width = 90;
             // 
             // label1

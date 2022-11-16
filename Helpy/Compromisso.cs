@@ -44,12 +44,13 @@ namespace Helpy
             if(am.gettRue()==true)
             {
                 cal.setEvento(u.getposAtual(), textBox1.Text, textBox2.Text, textBox3.Text);
-                meunome = textBox1.Text + "(" + meunome + ")";
+                meunome = "("+meunome+")"+" "+textBox1.Text;
                 cal.setEvento(posamigo, meunome, textBox2.Text, textBox3.Text);
                 List<Tuple<int, string, string, string>> b = cal.getEvento();
                 ListViewItem item = listView1.Items.Add(b[a].Item2);
                 item.SubItems.Add(b[a].Item4);
                 item.SubItems.Add(b[a].Item3);
+                cal.setcontItem();
                
                 
             }
@@ -60,6 +61,7 @@ namespace Helpy
                 ListViewItem item = listView1.Items.Add(b[a].Item2);
                 item.SubItems.Add(b[a].Item4);
                 item.SubItems.Add(b[a].Item3);
+                cal.setcontItem();
             }
            
             
@@ -69,7 +71,7 @@ namespace Helpy
             textBox2.Text = "";
             textBox3.Text = "";
             count++;
-            cal.setcontItem();
+            
         }
 
         private void Compromisso_FormClosing(object sender, FormClosingEventArgs e)
