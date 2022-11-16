@@ -16,6 +16,14 @@ namespace Helpy
         public Compromisso()
         {
             InitializeComponent();
+            Calendario cal = new Calendario();
+            List<Tuple<int, string, string, string>> b = cal.getEvento();
+            for(int i = 0; i<b.Count;i++)
+            {
+                
+                listBox1.Items.Add(b[i]);
+                
+            }
         }
         public int count = 0;
         bool find = false;

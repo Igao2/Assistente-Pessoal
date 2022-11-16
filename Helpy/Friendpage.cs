@@ -34,6 +34,7 @@ namespace Helpy
                     am.setSolicitacao(am.getPosamigo(), b[u.getposAtual()].Item1);
                     MessageBox.Show("Solicitação de amizade enviada", "Mensagem do Sistema", MessageBoxButtons.OK);
                     find = true;
+                    am.setcontSolicita();
                 }
                 
             }
@@ -50,15 +51,17 @@ namespace Helpy
             List<Tuple<int, string>> b = am.getSolicitacao();
             User u = new User();
             List<Tuple<string, string, string, string>> s = u.getUsuario();
+
             int pos = u.getposAtual();
 
             int pos2 = 0;
             int contador = u.getCount();
-            if ( s.Count > 1)
+            int contamigo = am.getcontSolicita();
+            if ( contador>0)
             {
-                if (b.Count > 0)
+                if (contamigo>0)
                 {
-                    for (int i = 0; i < s.Count; i++)
+                    for (int i = 0; i < contamigo; i++)
                     {
 
                         if (b[i].Item1 == pos)
@@ -76,6 +79,8 @@ namespace Helpy
                                         
                                         am.setAmigo(pos,nomeamigo);
                                         am.setAmigo(pos2,meunome);
+                                        am.delSolicitacao(i);
+                                        am.delcontSolicita();
                                         
                                     }
                                 }

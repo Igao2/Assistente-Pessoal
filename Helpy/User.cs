@@ -25,7 +25,7 @@ namespace Helpy
         {
             return count;
         }
-        public void setCount(int a)
+        public void setCount()
         {
             count++;
         }

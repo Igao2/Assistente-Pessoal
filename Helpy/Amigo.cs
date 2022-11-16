@@ -10,6 +10,7 @@ namespace Helpy
     {
         public static List<Tuple<int,string>> solicitacao = new List<Tuple<int,string>>();
         public static List<Tuple<int, string>> amigo = new List<Tuple<int, string>>();
+        public static int contSolicita = 0;
         public static int posAmigo = 0;
         public static bool tRue = false;
 
@@ -21,6 +22,18 @@ namespace Helpy
         {
 
             tRue = true;
+        }
+        public void delcontSolicita()
+        {
+            contSolicita--;
+        }
+        public int getcontSolicita()
+        {
+            return contSolicita;
+        }
+        public void setcontSolicita()
+        {
+            contSolicita++;
         }
 
         public List<Tuple<int, string>> getSolicitacao()

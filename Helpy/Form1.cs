@@ -23,7 +23,8 @@ namespace Helpy
         public int ema = 0;
         public int tel = 0;
         public int pass = 0;
-        bool uR = true;
+        
+        int countL = 0;
         
         public Cadastro()
         {
@@ -92,6 +93,7 @@ namespace Helpy
 
         private void butCad_Click(object sender, EventArgs e)
         {
+            countL++;
             string arroba = "@";
             string com = ".com";
             if (email.Text != "" && email.Text != originalEmail && usuario.Text != "" && usuario.Text!= originalUsuario && telefone.Text != "" && telefone.Text != originalTelefone && senha.Text != "" && senha.Text != originalSenha)
@@ -111,20 +113,19 @@ namespace Helpy
                                 email.Text = originalEmail;
                                 telefone.Text = originalTelefone;
                                 senha.Text = originalSenha;
-                                uR = false;
+                                
+                                countL = -1;
+                              
                             }
                             
                         }
-                        if (uR)
+                        if (countL!=-1)
                         {
                             u.setUsuario(usuario.Text, email.Text, telefone.Text, senha.Text);
                             List<Tuple<string, string, string, string>> t = u.getUsuario();
 
                             MessageBox.Show("Cadastro realizado com sucesso, seja bem vindo " + t[u.getCount()].Item1 + " ", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            u.setCount(1);
-                            usuario.Text = originalUsuario;
-                            email.Text = originalEmail;
-                            telefone.Text = originalTelefone;
+                            u.setCount();
                             senha.Text = originalSenha;
                             this.Hide();
                             Loginpopu login = new Loginpopu();
@@ -138,7 +139,7 @@ namespace Helpy
                         List<Tuple<string, string, string, string>> t = u.getUsuario();
 
                         MessageBox.Show("Cadastro realizado com sucesso, seja bem vindo " + t[u.getCount()].Item1 + " ", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        u.setCount(1);
+                        u.setCount();
                         usuario.Text = originalUsuario;
                         email.Text = originalEmail;
                         telefone.Text = originalTelefone;
