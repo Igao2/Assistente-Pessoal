@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Net;
+using Microsoft.VisualBasic;
 
 
 namespace Helpy
@@ -41,6 +42,26 @@ namespace Helpy
 
         }
 
+        public void enviarEmailerro()
+        {
+            string email = Interaction.InputBox("E-mail não encontrado, por favor digite o email registrado ou outro email", "Erro");
+            try
+            {
+                MailMessage mail = new MailMessage("projetohelpy@outlook.com", email);
+                mail.Subject = "Recuperar senha";
+                SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
+                smtp.UseDefaultCredentials = false;
+                mail.Body = "Sua senha é: " + sE;
+                smtp.Credentials = new NetworkCredential("projetohelpy@outlook.com", "1234@.com");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+                MessageBox.Show("Sucesso!! Sua senha foi enviada para seu email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                enviarEmailerro();
+            }
+        }
 
 
         private void email_Click(object sender, EventArgs e)
@@ -132,29 +153,30 @@ namespace Helpy
                             if (a[i].Item2 == eM)
 
                                 
-                                MessageBox.Show("Sua senha será enviada para o email registrado","Mensagem do Sistema",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                                try
-                                {
-                                    MailMessage mail = new MailMessage("projetohelpy@outlook.com", eM);
-                                    mail.Subject = "Recuperar senha";
-                                    SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
-                                    smtp.UseDefaultCredentials = false;
-                                    mail.Body = "Sua senha é: " + sE;
-                                    smtp.Credentials = new NetworkCredential("projetohelpy@outlook.com", "1234@.com");
-                                    smtp.EnableSsl = true;
-                                    smtp.Send(mail);
-                                    MessageBox.Show("Sucesso!! Sua senha foi enviada para seu email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                }
-                                catch(Exception)
-                                {
-                                    MessageBox.Show("Email não encontrado!!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }
-                               
+                            MessageBox.Show("Sua senha será enviada para o email registrado","Mensagem do Sistema",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                            try
+                            {
+                                MailMessage mail = new MailMessage("projetohelpy@outlook.com", eM);
+                                mail.Subject = "Recuperar senha";
+                                SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
+                                smtp.UseDefaultCredentials = false;
+                                mail.Body = "Sua senha é: " + sE;
+                                smtp.Credentials = new NetworkCredential("projetohelpy@outlook.com", "1234@.com");
+                                smtp.EnableSsl = true;
+                                smtp.Send(mail);
+                                MessageBox.Show("Sucesso!! Sua senha foi enviada para seu email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            catch (Exception)
+                            {
+                                enviarEmailerro();
                             }
                         }
                     }
                 }
             }
+                
+
+        }
         
 
         private void Loginpopu_FormClosing(object sender, FormClosingEventArgs e)

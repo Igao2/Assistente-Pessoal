@@ -26,7 +26,18 @@ namespace Helpy
             butHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(173, 122, 181);
             butHome.FlatAppearance.MouseOverBackColor = Color.Transparent;
             butHome.BackColor = Color.Transparent;
+            User u = new User();
+            List<Tuple<string, string, string, string>> b = u.getUsuario();
+            int cont = u.getCount();
+            int posatual = u.getposAtual();
 
+            for(int i =0;i<cont;i++)
+            {
+                if(i == posatual)
+                {
+                    label2.Text = b[i].Item1;
+                }
+            }
         }
         bool aviso = false;
         private void Homepage_Load(object sender, EventArgs e)
