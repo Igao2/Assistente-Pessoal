@@ -16,7 +16,8 @@ namespace Helpy
     {
         public string originalUsuario = "Nome de usuário";
         public string originalEmail = "Email";
-        public string originalTelefone = "Telefone";
+        string originalTelefone;
+
         public string originalSenha = "Senha";
       
         public int us = 0;
@@ -45,11 +46,12 @@ namespace Helpy
         private void Form1_Load(object sender, EventArgs e)
         {
             
+            originalTelefone =  telefone.Text;
         }
-        
-        
 
-      
+         
+
+
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -79,11 +81,11 @@ namespace Helpy
             {
                 email.Text = "Email";
             }
-            if (tel > 0 && pass > 0 && telefone.Text == "")
+            if (tel > 0 && ema > 0 && telefone.Text == "")
             {
-                telefone.Text = "Telefone";
+                telefone.Text = originalTelefone;
             }
-            if(us>0 && pass > 0 && usuario.Text == "")
+            if (us>0 && pass > 0 && usuario.Text == "")
             {
                 usuario.Text = "Nome de usuário";
             }
@@ -184,9 +186,9 @@ namespace Helpy
             {
                 email.Text = "Email";
             }
-            if (tel > 0 && us > 0 && telefone.Text == "")
+            if (tel > 0 && ema > 0 && telefone.Text == "")
             {
-                telefone.Text = "Telefone";
+                telefone.Text = originalTelefone;
             }
             if (pass > 0 && us > 0 && senha.Text == "")
             {
@@ -211,7 +213,7 @@ namespace Helpy
             }
             if (tel > 0 && ema > 0 && telefone.Text == "")
             {
-                telefone.Text = "Telefone";
+                telefone.Text =originalTelefone;
             }
             if (pass > 0 && ema > 0 && senha.Text == "")
             {
@@ -221,16 +223,28 @@ namespace Helpy
 
         private void telefone_Click(object sender, EventArgs e)
         {
+            
+        }
+        
+        
+
+        private void Cadastro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void telefone_Click_1(object sender, EventArgs e)
+        {
             tel++;
 
-            if (telefone.Text == "Telefone")
+            if (telefone.Text == originalTelefone)
             {
                 telefone.Text = "";
             }
 
             else
             {
-                telefone.Text = telefone.Text;
+                telefone.Text = originalTelefone;
             }
             if (ema > 0 && tel > 0 && email.Text == "")
             {
@@ -246,15 +260,8 @@ namespace Helpy
                 usuario.Text = "Nome de usuário";
             }
         }
-        
-        
 
-        private void Cadastro_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
         }

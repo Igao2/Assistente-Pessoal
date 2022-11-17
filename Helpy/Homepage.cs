@@ -65,41 +65,33 @@ namespace Helpy
 
         }
 
-        private void Button2_MouseEnter(object sender, EventArgs e)
-        {
-            Compromissos.BackColor = Color.FromArgb(255, 255, 255);
-        }
+        
 
-        private void Button2_MouseLeave(object sender, EventArgs e)
-        {
-            Compromissos.BackColor = Color.FromArgb(173, 122, 181);
-        }
-
-        private void Compromissos_MouseEnter(object sender, EventArgs e)
-        {
-            Tarefas.BackColor = Color.FromArgb(255, 255, 255);
-        }
-
-        private void Compromissos_MouseLeave(object sender, EventArgs e)
-        {
-            Tarefas.BackColor = Color.FromArgb(173, 122, 181);
-        }
+  
 
         private void Compromissos_Click(object sender, EventArgs e)
         {
+            Change();
+            Tarefas.BackColor = Color.Orchid; ;
+
             this.formLoader.Controls.Clear();
             Tasks tas = new Tasks() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.formLoader.Controls.Add(tas);
             tas.Show();
+            
 
         }
 
         private void Compromissos_Click_1(object sender, EventArgs e)
         {
+            Change();
+            Compromissos.BackColor = Color.Orchid;
             this.formLoader.Controls.Clear();
             Compromisso com = new Compromisso() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.formLoader.Controls.Add(com);
             com.Show();
+            
+
         }
 
         private void butlogoff_Click(object sender, EventArgs e)
@@ -111,6 +103,7 @@ namespace Helpy
 
         private void butHome_Click(object sender, EventArgs e)
         {
+            Change();
             this.formLoader.Controls.Clear();
             HomeScreen hs = new HomeScreen() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.formLoader.Controls.Add(hs);
@@ -119,10 +112,13 @@ namespace Helpy
 
         private void Amigos_Click(object sender, EventArgs e)
         {
+            Change();
+            Amigos.BackColor = Color.Orchid;
             this.formLoader.Controls.Clear();
             Friendpage fp = new Friendpage() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.formLoader.Controls.Add(fp);
             fp.Show();
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -168,6 +164,14 @@ namespace Helpy
                 
 
             }
+        }
+
+     
+        public void Change()
+        {
+            Tarefas.BackColor = Color.FromArgb(173, 122, 181);
+            Compromissos.BackColor = Color.FromArgb(173, 122, 181);
+            Amigos.BackColor = Color.FromArgb(173, 122, 181);
         }
     }
 }

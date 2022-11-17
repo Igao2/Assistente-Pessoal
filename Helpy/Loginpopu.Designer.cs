@@ -99,7 +99,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "r";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Loginpopu
             // 
@@ -118,7 +118,6 @@
             this.Name = "Loginpopu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Loginpopu_FormClosing);
             this.Load += new System.EventHandler(this.Loginpopu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

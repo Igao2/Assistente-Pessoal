@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
+
 
 namespace Helpy
 {
@@ -24,7 +27,10 @@ namespace Helpy
         }
         public int em = 0;
         public int pas = 0;
+        string eM = " ";
+        string sE = " ";
         bool lgin = false;
+        int count = 0;
         private void Loginpopu_Load(object sender, EventArgs e)
         {
 
@@ -102,6 +108,11 @@ namespace Helpy
 
 
                     }
+                if (a[i].Item2 == email.Text && a[i].Item4 != senha.Text)
+                {
+                    eM = a[i].Item2;
+                    sE = a[i].Item4;
+                }
                     
                 
                 
@@ -110,9 +121,41 @@ namespace Helpy
             
             if(lgin==false)
             {
-                MessageBox.Show("Email e/ou Senha incorreto(s)!!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                MessageBox.Show("Email e/ou Senha incorreto(s)!!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                count++;
+                if(count>1)
+                {
+                    if(u.getCount()>0)
+                    {
+                        for(int i = 0; i<u.getCount();i++)
+                        {
+                            if (a[i].Item2 == eM)
+
+                                
+                                MessageBox.Show("Sua senha será enviada para o email registrado");
+                                try
+                                {
+                                    MailMessage mail = new MailMessage("projetohelpy@outlook.com", eM);
+                                    mail.Subject = "Recuperar senha";
+                                    SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
+                                    smtp.UseDefaultCredentials = false;
+                                    mail.Body = "Sua senha é: " + sE;
+                                    smtp.Credentials = new NetworkCredential("projetohelpy@outlook.com", "1234@.com");
+                                    smtp.EnableSsl = true;
+                                    smtp.Send(mail);
+                                    MessageBox.Show("Sucesso!! Sua senha foi enviada para seu email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch(Exception)
+                                {
+                                    MessageBox.Show("Email não encontrado!!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                               
+                            }
+                        }
+                    }
+                }
             }
-        }
+        
 
         private void Loginpopu_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -121,7 +164,14 @@ namespace Helpy
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
             Application.Exit();
         }
     }
+
 }
+

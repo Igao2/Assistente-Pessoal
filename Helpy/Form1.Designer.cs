@@ -33,9 +33,9 @@
             this.butCad = new System.Windows.Forms.Button();
             this.butLogin = new System.Windows.Forms.Button();
             this.senha = new System.Windows.Forms.TextBox();
-            this.telefone = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
             this.usuario = new System.Windows.Forms.TextBox();
+            this.telefone = new System.Windows.Forms.MaskedTextBox();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -81,19 +81,6 @@
             this.senha.Text = "Senha";
             this.senha.Click += new System.EventHandler(this.senha_Click);
             // 
-            // telefone
-            // 
-            this.telefone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.telefone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.telefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
-            this.telefone.Location = new System.Drawing.Point(451, 290);
-            this.telefone.Name = "telefone";
-            this.telefone.Size = new System.Drawing.Size(375, 25);
-            this.telefone.TabIndex = 10;
-            this.telefone.Text = "Telefone";
-            this.telefone.Click += new System.EventHandler(this.telefone_Click);
-            // 
             // email
             // 
             this.email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
@@ -120,6 +107,24 @@
             this.usuario.Text = "Nome de usuário";
             this.usuario.Click += new System.EventHandler(this.usuario_Click_1);
             // 
+            // telefone
+            // 
+            this.telefone.AllowPromptAsInput = false;
+            this.telefone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.telefone.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.telefone.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(156)))), ((int)(((byte)(156)))));
+            this.telefone.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
+            this.telefone.Location = new System.Drawing.Point(442, 290);
+            this.telefone.Mask = "(00)00000-0000";
+            this.telefone.Name = "telefone";
+            this.telefone.RejectInputOnFirstFailure = true;
+            this.telefone.Size = new System.Drawing.Size(375, 24);
+            this.telefone.SkipLiterals = false;
+            this.telefone.TabIndex = 13;
+            this.telefone.Click += new System.EventHandler(this.telefone_Click_1);
+            // 
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(Helpy.User);
@@ -131,9 +136,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 544);
+            this.Controls.Add(this.telefone);
             this.Controls.Add(this.usuario);
             this.Controls.Add(this.email);
-            this.Controls.Add(this.telefone);
             this.Controls.Add(this.senha);
             this.Controls.Add(this.butLogin);
             this.Controls.Add(this.butCad);
@@ -154,10 +159,10 @@
         private System.Windows.Forms.Button butCad;
         private System.Windows.Forms.Button butLogin;
         private System.Windows.Forms.TextBox senha;
-        private System.Windows.Forms.TextBox telefone;
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.TextBox usuario;
         private System.Windows.Forms.BindingSource userBindingSource;
+        private System.Windows.Forms.MaskedTextBox telefone;
     }
 }
 

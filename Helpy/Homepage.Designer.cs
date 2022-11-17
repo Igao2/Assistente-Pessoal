@@ -47,6 +47,8 @@
             this.Compromissos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Compromissos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(122)))), ((int)(((byte)(181)))));
             this.Compromissos.FlatAppearance.BorderSize = 0;
+            this.Compromissos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orchid;
+            this.Compromissos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orchid;
             this.Compromissos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Compromissos.Location = new System.Drawing.Point(-2, 198);
             this.Compromissos.Name = "Compromissos";
@@ -54,8 +56,6 @@
             this.Compromissos.TabIndex = 9;
             this.Compromissos.UseVisualStyleBackColor = false;
             this.Compromissos.Click += new System.EventHandler(this.Compromissos_Click_1);
-            this.Compromissos.MouseEnter += new System.EventHandler(this.Button2_MouseEnter);
-            this.Compromissos.MouseLeave += new System.EventHandler(this.Button2_MouseLeave);
             // 
             // Tarefas
             // 
@@ -64,6 +64,8 @@
             this.Tarefas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Tarefas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(122)))), ((int)(((byte)(181)))));
             this.Tarefas.FlatAppearance.BorderSize = 0;
+            this.Tarefas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orchid;
+            this.Tarefas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orchid;
             this.Tarefas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Tarefas.Location = new System.Drawing.Point(-2, 128);
             this.Tarefas.Name = "Tarefas";
@@ -71,8 +73,6 @@
             this.Tarefas.TabIndex = 12;
             this.Tarefas.UseVisualStyleBackColor = false;
             this.Tarefas.Click += new System.EventHandler(this.Compromissos_Click);
-            this.Tarefas.MouseEnter += new System.EventHandler(this.Compromissos_MouseEnter);
-            this.Tarefas.MouseLeave += new System.EventHandler(this.Compromissos_MouseLeave);
             // 
             // formLoader
             // 
@@ -108,6 +108,8 @@
             this.Amigos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Amigos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(122)))), ((int)(((byte)(181)))));
             this.Amigos.FlatAppearance.BorderSize = 0;
+            this.Amigos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orchid;
+            this.Amigos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orchid;
             this.Amigos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Amigos.Location = new System.Drawing.Point(-2, 268);
             this.Amigos.Name = "Amigos";
