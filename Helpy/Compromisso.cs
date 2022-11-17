@@ -55,10 +55,10 @@ namespace Helpy
                
                 cal.setcontItem();
             }
-           
-            
-           
-            
+
+
+
+            MessageBox.Show("Compromisso cadastrado", "Mensagem do sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             textBox1.Text = "";
             maskedTextBox2.Text = "";
             maskedTextBox1.Text = "";

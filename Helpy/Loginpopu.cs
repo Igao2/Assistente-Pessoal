@@ -132,7 +132,7 @@ namespace Helpy
                             if (a[i].Item2 == eM)
 
                                 
-                                MessageBox.Show("Sua senha será enviada para o email registrado");
+                                MessageBox.Show("Sua senha será enviada para o email registrado","Mensagem do Sistema",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                                 try
                                 {
                                     MailMessage mail = new MailMessage("projetohelpy@outlook.com", eM);

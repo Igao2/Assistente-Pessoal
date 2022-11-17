@@ -21,7 +21,12 @@ namespace Helpy
             butlogoff.FlatAppearance.MouseDownBackColor = Color.Transparent;
             butlogoff.FlatAppearance.MouseOverBackColor = Color.Transparent;
             butlogoff.BackColor = Color.Transparent;
-            
+            butHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            butHome.FlatAppearance.BorderSize = 0;
+            butHome.FlatAppearance.MouseDownBackColor = Color.FromArgb(173, 122, 181);
+            butHome.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            butHome.BackColor = Color.Transparent;
+
         }
         bool aviso = false;
         private void Homepage_Load(object sender, EventArgs e)
@@ -172,6 +177,16 @@ namespace Helpy
             Tarefas.BackColor = Color.FromArgb(173, 122, 181);
             Compromissos.BackColor = Color.FromArgb(173, 122, 181);
             Amigos.BackColor = Color.FromArgb(173, 122, 181);
+        }
+
+        private void ButHome_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(this.butHome, "Home");
+        }
+
+        private void Butlogoff_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(this.butlogoff, "Fazer Logoff");
         }
     }
 }

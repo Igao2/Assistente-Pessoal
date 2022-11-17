@@ -16,7 +16,7 @@ namespace Helpy
     {
         public string originalUsuario = "Nome de usuário";
         public string originalEmail = "Email";
-        string originalTelefone;
+       string originalTelefone;
 
         public string originalSenha = "Senha";
       

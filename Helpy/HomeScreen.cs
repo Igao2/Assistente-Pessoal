@@ -139,7 +139,7 @@ namespace Helpy
                         if (n[i].Item4.Contains(date))
                         {
                             a = a +
-                                "\n" + n[i].Item2 + "Horário: " + n[i].Item3;
+                                "\n" + n[i].Item2 + " ,Horário: " + n[i].Item3;
                         }
                     }
                   
@@ -213,6 +213,16 @@ namespace Helpy
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void ToolStrip2_MouseHover(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void ListView1_MouseHover(object sender, EventArgs e)
+        {
+            information.SetToolTip(this.listView1, "Pressione o botão delete para deletar o compromisso");
         }
     }
 }

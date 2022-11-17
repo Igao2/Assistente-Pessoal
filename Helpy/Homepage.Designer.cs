@@ -38,6 +38,7 @@
             this.Amigos = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // Compromissos
@@ -83,12 +84,14 @@
             // 
             // butlogoff
             // 
-            this.butlogoff.Location = new System.Drawing.Point(859, 2);
+            this.butlogoff.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butlogoff.Location = new System.Drawing.Point(848, 2);
             this.butlogoff.Name = "butlogoff";
-            this.butlogoff.Size = new System.Drawing.Size(75, 54);
+            this.butlogoff.Size = new System.Drawing.Size(86, 57);
             this.butlogoff.TabIndex = 14;
             this.butlogoff.UseVisualStyleBackColor = true;
             this.butlogoff.Click += new System.EventHandler(this.butlogoff_Click);
+            this.butlogoff.MouseHover += new System.EventHandler(this.Butlogoff_MouseHover);
             // 
             // butHome
             // 
@@ -100,6 +103,7 @@
             this.butHome.TabIndex = 0;
             this.butHome.UseVisualStyleBackColor = true;
             this.butHome.Click += new System.EventHandler(this.butHome_Click);
+            this.butHome.MouseHover += new System.EventHandler(this.ButHome_MouseHover);
             // 
             // Amigos
             // 
@@ -123,6 +127,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft New Tai Lue", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.GhostWhite;
             this.label1.Location = new System.Drawing.Point(330, -4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 63);
@@ -133,6 +138,10 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // Homepage
             // 
@@ -169,5 +178,6 @@
         private System.Windows.Forms.Button Amigos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

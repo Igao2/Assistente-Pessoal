@@ -56,12 +56,23 @@ namespace Helpy
 
             int pos2 = 0;
             int contador = u.getCount();
-            int contamigo = am.getcontSolicita();
+            List<Tuple<int, string>> c = am.getAmigo();
+            int contamigo = am.getcontAmigo();
+            int contsol = am.getcontSolicita();
             if ( contador>0)
-            {
-                if (contamigo>0)
+            {  if(contamigo>0)
                 {
-                    for (int i = 0; i < contamigo; i++)
+                    for(int i = 0;i<contamigo;i++)
+                    {
+                        if(c[i].Item1==u.getposAtual())
+                        {
+                            listView1.Items.Add(c[i].Item2);
+                        }
+                    }
+                }
+                if (contsol>0)
+                {
+                    for (int i = 0; i < contsol; i++)
                     {
 
                         if (b[i].Item1 == pos)
@@ -79,6 +90,9 @@ namespace Helpy
                                         
                                         am.setAmigo(pos,nomeamigo);
                                         am.setAmigo(pos2,meunome);
+                                        listView1.Items.Add(nomeamigo);
+                                        am.setcontAmigo();
+                                        am.setcontAmigo();
                                         am.delSolicitacao(i);
                                         am.delcontSolicita();
                                         
