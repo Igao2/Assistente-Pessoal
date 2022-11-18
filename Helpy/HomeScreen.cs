@@ -106,6 +106,15 @@ namespace Helpy
                 label1.Text = dat.ToShortDateString() + " Sem compromissos";
             }
         }
+        List<Tuple<int, string, string, string>> b = new List<Tuple<int, string, string, string>>();
+        public List<Tuple<int,string,string,string>> getB()
+        {
+            return b;
+        }
+        public void setB(int pos,string a,string d, string c)
+        {
+            b.Add(Tuple.Create(pos, a, d, c));
+        }
 
         private void HomeScreen_Load(object sender, EventArgs e)
         {
@@ -165,49 +174,7 @@ namespace Helpy
 
         private void listView1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Delete)
-            {
-                
-                DialogResult dr = MessageBox.Show("Deseja excluir o compromisso?", "Mensagem do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(dr == DialogResult.Yes)
-                {
-                    Calendario cal = new Calendario();
-                    User u = new User();
-                    int iteM = cal.getcontItem();
-                    ListViewItem list = new ListViewItem();
-                    list = listView1.SelectedItems[0];
-                    int ano = 2022;
-                    int mes = 03;
-                    int dia = 02;
-                    DateTime dT = new DateTime(ano, mes, dia);
-                    for (int i = 0; i < iteM; i++)
-                    {
-                        List<Tuple<int, string, string, string>> b = cal.getEvento();
-
-                        if (b[i].Item2 == list.Text)
-                        {
-                            string dt = b[i].Item4;
-                            string[] data = dt.Split('/');
-                             ano = int.Parse(data[2]);
-                             mes = int.Parse(data[1]);
-                             dia = int.Parse(data[0]);
-
-
-                            dT =  new DateTime(ano, mes, dia);
-                            cal.delEvento(i);
-                            
-                        }
-                        calAtual.RemoveBoldedDate(dT);
-
-                    }
-                    
-                    listView1.Items.Remove(list);
-
-                    cal.contmenosItem();
-                }
-               
-                
-            }
+           
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -224,5 +191,117 @@ namespace Helpy
         {
             information.SetToolTip(this.listView1, "Pressione o botão delete para deletar o compromisso");
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            
+           
+        }
+
+        private void ListView1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char b = e.KeyChar;
+            label2.Text = b.ToString();
+        }
+
+        private void ListView1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+
+                DialogResult dr = MessageBox.Show("Deseja excluir o compromisso?", "Mensagem do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    Calendario cal = new Calendario();
+                    User u = new User();
+                    int iteM = cal.getcontItem();
+                    ListViewItem list = new ListViewItem();
+                    list = listView1.SelectedItems[0];
+                    int ano = 2022;
+                    int mes = 03;
+                    int dia = 02;
+                    DateTime dT = new DateTime(ano, mes, dia);
+                    for (int i = 0; i < iteM; i++)
+                    {
+                        List<Tuple<int, string, string, string>> f = cal.getEvento();
+
+                        if (f[i].Item2 == list.Text)
+                        {
+                            string dt = b[i].Item4;
+                            string[] data = dt.Split('/');
+                            ano = int.Parse(data[2]);
+                            mes = int.Parse(data[1]);
+                            dia = int.Parse(data[0]);
+
+
+                            dT = new DateTime(ano, mes, dia);
+                            cal.delEvento(i);
+
+
+
+                        }
+                        calAtual.RemoveBoldedDate(dT);
+
+                    }
+
+                    listView1.Items.Remove(list);
+
+                    cal.contmenosItem();
+                }
+
+
+            }
+            if (e.KeyCode == Keys.E)
+            {
+                Calendario cal = new Calendario();
+                User u = new User();
+                int iteM = cal.getcontItem();
+                ListViewItem list = new ListViewItem();
+                list = listView1.SelectedItems[0];
+                int ano = 2022;
+                int mes = 03;
+                int dia = 02;
+                DateTime dT = new DateTime(ano, mes, dia);
+                for (int i = 0; i < iteM; i++)
+                {
+                    List<Tuple<int, string, string, string>> f = cal.getEvento();
+                if(list.Text != "")
+                    {
+                        if (f[i].Item2 == list.Text)
+                        {
+                            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
+                            {
+
+
+                                string dt = textBox2.Text;
+                                string[] data = dt.Split('/');
+                                ano = int.Parse(data[2]);
+                                mes = int.Parse(data[1]);
+                                dia = int.Parse(data[0]);
+
+
+                                dT = new DateTime(ano, mes, dia);
+                                cal.delEvento(i);
+
+                                cal.setEvento(u.getposAtual(), textBox1.Text, textBox3.Text, textBox2.Text);
+                                ListViewItem item = new ListViewItem(textBox1.Text);
+                                item.SubItems.Add(textBox2.Text);
+                                item.SubItems.Add(textBox3.Text);
+                                listView1.Items.Add(item);
+                                listView1.Items.Remove(list);
+
+                                cal.contmenosItem();
+                            }
+                        }
+                    }
+                    
+                    calAtual.AddBoldedDate(dT);
+
+                }
+
+            }
+        }
+
+        
     }
 }

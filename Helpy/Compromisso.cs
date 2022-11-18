@@ -19,7 +19,12 @@ namespace Helpy
             InitializeComponent();
             Calendario cal = new Calendario();
             List<Tuple<int, string, string, string>> b = cal.getEvento();
-            
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.BackColor = Color.Transparent;
+
         }
         public int count = 0;
         bool find = false;
@@ -41,7 +46,7 @@ namespace Helpy
             {
                 cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
                 meunome = "-"+meunome+"-"+textBox1.Text;
-                label1.Text = meunome;
+               
                 cal.setEvento(posamigo, meunome, maskedTextBox1.Text, maskedTextBox2.Text);
                 List<Tuple<int, string, string, string>> b = cal.getEvento();
                 
@@ -92,32 +97,7 @@ namespace Helpy
 
         private void listView1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Delete)
-            {
-                Calendario cal = new Calendario();
-                User u = new User();
-                int iteM = cal.getcontItem();
-                ListViewItem list = new ListViewItem();
-                
-                
-                
-                for(int i = 0; i <iteM;i++)
-                {
-                    List<Tuple<int,string,string,string>> b = cal.getEvento();
-                    
-                    if (b[i].Item2 ==list.Text)
-                    {
-                        cal.delEvento(i);
-                    }
-                    
-                    
-                }
-                
-                cal.contmenosItem();
 
-
-            }
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -145,8 +125,7 @@ namespace Helpy
                                 {
                                 
                                     posamigo = j;
-                                label1.Text = meunome;
-                                label2.Text = posamigo.ToString();
+                                
 
                                
                                 }
@@ -162,6 +141,16 @@ namespace Helpy
                     MessageBox.Show("Usuário " + name + " adicionado ao proximo evento", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+        }
+
+        private void MaskedTextBox2_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void ListView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
     public partial class True

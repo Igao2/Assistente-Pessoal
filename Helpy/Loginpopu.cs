@@ -193,6 +193,11 @@ namespace Helpy
         {
             Application.Exit();
         }
+
+        private void Email_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
