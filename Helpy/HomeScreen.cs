@@ -227,7 +227,7 @@ namespace Helpy
 
                         if (f[i].Item2 == list.Text)
                         {
-                            string dt = b[i].Item4;
+                            string dt = f[i].Item4;
                             string[] data = dt.Split('/');
                             ano = int.Parse(data[2]);
                             mes = int.Parse(data[1]);
@@ -236,11 +236,11 @@ namespace Helpy
 
                             dT = new DateTime(ano, mes, dia);
                             cal.delEvento(i);
-
+                            calAtual.RemoveBoldedDate(dT);
 
 
                         }
-                        calAtual.RemoveBoldedDate(dT);
+                       
 
                     }
 
@@ -262,9 +262,10 @@ namespace Helpy
                 int mes = 03;
                 int dia = 02;
                 DateTime dT = new DateTime(ano, mes, dia);
+                List<Tuple<int, string, string, string>> f = cal.getEvento();
                 for (int i = 0; i < iteM; i++)
                 {
-                    List<Tuple<int, string, string, string>> f = cal.getEvento();
+                    
                 if(list.Text != "")
                     {
                         if (f[i].Item2 == list.Text)
@@ -272,6 +273,7 @@ namespace Helpy
                             if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
                             {
 
+                                cal.editEvento(i, u.getposAtual(), textBox1.Text, textBox3.Text, textBox2.Text);
 
                                 string dt = textBox2.Text;
                                 string[] data = dt.Split('/');
@@ -281,16 +283,16 @@ namespace Helpy
 
 
                                 dT = new DateTime(ano, mes, dia);
-                                cal.delEvento(i);
+                             
 
-                                cal.setEvento(u.getposAtual(), textBox1.Text, textBox3.Text, textBox2.Text);
+                                
                                 ListViewItem item = new ListViewItem(textBox1.Text);
                                 item.SubItems.Add(textBox2.Text);
                                 item.SubItems.Add(textBox3.Text);
                                 listView1.Items.Add(item);
                                 listView1.Items.Remove(list);
 
-                                cal.contmenosItem();
+                                
                             }
                         }
                     }

@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loginpopu));
             this.senha = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
-            this.butLogin = new System.Windows.Forms.Button();
             this.buttonlogin = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // senha
@@ -65,25 +66,13 @@
             this.email.Click += new System.EventHandler(this.email_Click);
             this.email.TextChanged += new System.EventHandler(this.Email_TextChanged);
             // 
-            // butLogin
-            // 
-            this.butLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.butLogin.FlatAppearance.BorderSize = 0;
-            this.butLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butLogin.Location = new System.Drawing.Point(223, 367);
-            this.butLogin.Name = "butLogin";
-            this.butLogin.Size = new System.Drawing.Size(155, 49);
-            this.butLogin.TabIndex = 0;
-            this.butLogin.UseVisualStyleBackColor = true;
-            this.butLogin.Click += new System.EventHandler(this.butLogin_Click);
-            // 
             // buttonlogin
             // 
             this.buttonlogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonlogin.Location = new System.Drawing.Point(180, 422);
             this.buttonlogin.Name = "buttonlogin";
             this.buttonlogin.Size = new System.Drawing.Size(130, 36);
-            this.buttonlogin.TabIndex = 11;
+            this.buttonlogin.TabIndex = 8;
             this.buttonlogin.UseVisualStyleBackColor = true;
             this.buttonlogin.Click += new System.EventHandler(this.Buttonlogin_Click);
             // 
@@ -103,6 +92,11 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Visible = true;
+            // 
             // Loginpopu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -112,7 +106,6 @@
             this.ClientSize = new System.Drawing.Size(500, 500);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonlogin);
-            this.Controls.Add(this.butLogin);
             this.Controls.Add(this.email);
             this.Controls.Add(this.senha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -129,8 +122,8 @@
         #endregion
         private System.Windows.Forms.TextBox senha;
         private System.Windows.Forms.TextBox email;
-        private System.Windows.Forms.Button butLogin;
         private System.Windows.Forms.Button buttonlogin;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

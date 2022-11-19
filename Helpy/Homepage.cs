@@ -199,5 +199,17 @@ namespace Helpy
         {
             toolTip1.SetToolTip(this.butlogoff, "Fazer Logoff");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            Change();
+            Tarefas.BackColor = Color.Orchid; ;
+
+            this.formLoader.Controls.Clear();
+            Usuario usuario = new Usuario() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            this.formLoader.Controls.Add(usuario);
+            usuario.Show();
+        }
     }
 }

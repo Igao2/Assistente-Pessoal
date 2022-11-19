@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Net.Mail;
 using System.Net;
 using Microsoft.VisualBasic;
-
+using Microsoft.VisualBasic.Devices;
 
 namespace Helpy
 {
@@ -47,12 +47,12 @@ namespace Helpy
             string email = Interaction.InputBox("E-mail não encontrado, por favor digite o email registrado ou outro email", "Erro");
             try
             {
-                MailMessage mail = new MailMessage("projetohelpy@outlook.com", email);
+                MailMessage mail = new MailMessage("projetohelpy1@outlook.com", email);
                 mail.Subject = "Recuperar senha";
                 SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
                 smtp.UseDefaultCredentials = false;
                 mail.Body = "Sua senha é: " + sE;
-                smtp.Credentials = new NetworkCredential("projetohelpy@outlook.com", "1234@.com");
+                smtp.Credentials = new NetworkCredential("projetohelpy1@outlook.com", "1234@.com");
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
                 MessageBox.Show("Sucesso!! Sua senha foi enviada para seu email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -102,6 +102,23 @@ namespace Helpy
         {
             
         }
+        public void semnetErro()
+        {
+            Random rand = new Random();
+            string z = rand.Next(0,1000).ToString();
+            MessageBox.Show("Você recebérá uma notificação com o codigo a ser digitado!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            notifyIcon1.ShowBalloonTip(5000, "Código", "Digite esse código para receber sua senha: " + z, ToolTipIcon.Info);
+            string ez = Interaction.InputBox("Digite o código que foi enviado por notificação", "Mensagem do sistema");
+            if (ez == z)
+            {
+                MessageBox.Show("Sua senha é " + sE, "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Código incorreto, por favor tente novamente","Mensagem do Sistema",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                semnetErro();
+            }
+        }
 
         private void Buttonlogin_Click(object sender, EventArgs e)
         {
@@ -150,26 +167,40 @@ namespace Helpy
                     {
                         for(int i = 0; i<u.getCount();i++)
                         {
-                            if (a[i].Item2 == eM)
-
+                            List<Tuple<string, string, string, string>> b = u.getUsuario();
+                            if (b[i].Item2 == email.Text)
+                            {
+                                eM = b[i].Item2;
+                                sE = b[i].Item4;
+                                Network net = new Network();
+                                if (net.IsAvailable)
+                                {
+                                    MessageBox.Show("Sua senha será enviada para o email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    try
+                                    {
+                                        MailMessage mail = new MailMessage("projetohelpy@outlook.com", eM);
+                                        mail.Subject = "Recuperar senha";
+                                        SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
+                                        smtp.UseDefaultCredentials = false;
+                                        mail.Body = "Sua senha é: " + sE;
+                                        smtp.Credentials = new NetworkCredential("projetohelpy@outlook.com", "1234@.com");
+                                        smtp.EnableSsl = true;
+                                        smtp.Send(mail);
+                                        MessageBox.Show("Sucesso!! Sua senha foi enviada para seu email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    }
+                                    catch (Exception)
+                                    {
+                                        enviarEmailerro();
+                                    }
+                                }
+                                else
+                                {
+                                    semnetErro();
+                                }
+                            }
+                            
                                 
-                            MessageBox.Show("Sua senha será enviada para o email registrado","Mensagem do Sistema",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                            try
-                            {
-                                MailMessage mail = new MailMessage("projetohelpy@outlook.com", eM);
-                                mail.Subject = "Recuperar senha";
-                                SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
-                                smtp.UseDefaultCredentials = false;
-                                mail.Body = "Sua senha é: " + sE;
-                                smtp.Credentials = new NetworkCredential("projetohelpy@outlook.com", "1234@.com");
-                                smtp.EnableSsl = true;
-                                smtp.Send(mail);
-                                MessageBox.Show("Sucesso!! Sua senha foi enviada para seu email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            catch (Exception)
-                            {
-                                enviarEmailerro();
-                            }
+                           
                         }
                     }
                 }

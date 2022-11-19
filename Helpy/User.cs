@@ -37,5 +37,12 @@ namespace Helpy
         {
             usuario.Add(Tuple.Create(nome, email, telefone, senha));
         }
+        public void editUsuario(int posusuario,string nome,string email,string telefone,string senha)
+        {
+            List<Tuple<string,string,string,string>> b = new List<Tuple<string,string,string,string>>();
+            b.Add(Tuple.Create(nome, email, telefone, senha));
+            usuario[posusuario] = b[0];
+            b.RemoveAt(0);
+        }
     }
 }

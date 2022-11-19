@@ -58,3 +58,4 @@ C:\Users\aluno\Desktop\einari\Helpy\obj\Debug\Helpy.pdb
 C:\Users\aluno\Desktop\Enari\Helpy\obj\Debug\Helpy.Friendpage.resources
 C:\Users\aluno\Desktop\Enari\Helpy\obj\Debug\Helpy.HomeScreen.resources
 C:\Users\aluno\Desktop\Enari\Helpy\obj\Debug\Helpy.Tasks.resources
+C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.Usuario.resources
