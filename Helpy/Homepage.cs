@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,19 @@ namespace Helpy
                 if(i == posatual)
                 {
                     label2.Text = b[i].Item1;
+                }
+            }
+            if(u.getSM())
+            {
+
+                string ez = Interaction.InputBox("Altere sua senha para usar o sistema");
+                for(int i =0; i<u.getCount();i++)
+                {
+                    if(i==u.getposAtual())
+                    {
+                        u.editUsuario(i, b[i].Item1, b[i].Item2, b[i].Item3, ez);
+                        u.setSMfalse();
+                    }
                 }
             }
         }

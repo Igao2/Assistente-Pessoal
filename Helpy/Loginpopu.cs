@@ -44,18 +44,53 @@ namespace Helpy
 
         public void enviarEmailerro()
         {
-            string email = Interaction.InputBox("E-mail não encontrado, por favor digite o email registrado ou outro email", "Erro");
+            string emaill = Interaction.InputBox("E-mail não encontrado, por favor digite o email registrado ou outro email", "Erro");
             try
             {
-                MailMessage mail = new MailMessage("projetohelpy1@outlook.com", email);
+                User u = new User();
+                List<Tuple<string, string, string, string>> b = u.getUsuario();
+                for(int i = 0; i < u.getCount(); i++)
+                {
+                    if (b[i].Item2 == email.Text)
+                    {
+                        string senhanova = b[i].Item1 + "3232";
+                        u.editUsuario(i, b[i].Item1, b[i].Item2, b[i].Item3, senhanova);
+                        sE = senhanova;
+                    }
+                }
+                Random rand = new Random();
+                string z = rand.Next(1, 1000).ToString();
+                MailMessage mail = new MailMessage("projetohelpy1@outlook.com", emaill);
                 mail.Subject = "Recuperar senha";
                 SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
                 smtp.UseDefaultCredentials = false;
-                mail.Body = "Sua senha é: " + sE;
+                mail.Body = "Digite esse código para recuperar sua senha "+z;
                 smtp.Credentials = new NetworkCredential("projetohelpy1@outlook.com", "1234@.com");
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
-                MessageBox.Show("Sucesso!! Sua senha foi enviada para seu email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string ez = Interaction.InputBox("Digite o código que foi enviado por notificação", "Mensagem do sistema");
+                if (ez == z)
+                {
+                    Random randum = new Random();
+                    for (int i = 0; i < u.getCount(); i++)
+                    {
+                        if (b[i].Item2 == email.Text)
+                        {
+                            string senhanova = b[i].Item1 + "3232";
+                            u.editUsuario(i, b[i].Item1, b[i].Item2, b[i].Item3, senhanova);
+                            sE = senhanova;
+                        }
+                    }
+
+
+                    MessageBox.Show("Sua nova senha é " + sE, "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    u.setSMtrue();
+                }
+                else
+                {
+                    MessageBox.Show("Código incorreto, por favor tente novamente", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    enviarEmailerro();
+                }
             }
             catch (Exception)
             {
@@ -104,6 +139,8 @@ namespace Helpy
         }
         public void semnetErro()
         {
+            User u = new User();
+            List<Tuple<string, string, string, string>> b = u.getUsuario();
             Random rand = new Random();
             string z = rand.Next(0,1000).ToString();
             MessageBox.Show("Você recebérá uma notificação com o codigo a ser digitado!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -111,7 +148,20 @@ namespace Helpy
             string ez = Interaction.InputBox("Digite o código que foi enviado por notificação", "Mensagem do sistema");
             if (ez == z)
             {
-                MessageBox.Show("Sua senha é " + sE, "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Random randum = new Random();
+                for (int i =0;i<u.getCount();i++)
+                {
+                    if (b[i].Item2==email.Text)
+                    {
+                        string senhanova = b[i].Item1+"3232";
+                        u.editUsuario(i, b[i].Item1, b[i].Item2, b[i].Item3, senhanova);
+                        sE = senhanova;
+                    }
+                }
+              
+                
+                MessageBox.Show("Sua nova senha é " + sE, "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                u.setSMtrue();
             }
             else
             {
@@ -171,22 +221,39 @@ namespace Helpy
                             if (b[i].Item2 == email.Text)
                             {
                                 eM = b[i].Item2;
-                                sE = b[i].Item4;
+                               
                                 Network net = new Network();
                                 if (net.IsAvailable)
                                 {
-                                    MessageBox.Show("Sua senha será enviada para o email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    MessageBox.Show("Enviaremos um código de recuperação de senha no seu email cadastrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                     try
                                     {
+                                        
+                                            if (b[i].Item2 == email.Text)
+                                            {
+                                                string senhanova = b[i].Item1 + "3232";
+                                                u.editUsuario(i, b[i].Item1, b[i].Item2, b[i].Item3, senhanova);
+                                                sE = senhanova;
+                                            }
+                                        Random rand = new Random();
+                                        string z = rand.Next(1, 1000).ToString();
                                         MailMessage mail = new MailMessage("projetohelpy@outlook.com", eM);
                                         mail.Subject = "Recuperar senha";
                                         SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
                                         smtp.UseDefaultCredentials = false;
-                                        mail.Body = "Sua senha é: " + sE;
+                                        mail.Body = "Digite o seguinte código para recuperar sua senha "+ rand;
                                         smtp.Credentials = new NetworkCredential("projetohelpy@outlook.com", "1234@.com");
                                         smtp.EnableSsl = true;
                                         smtp.Send(mail);
-                                        MessageBox.Show("Sucesso!! Sua senha foi enviada para seu email registrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        string ez = Interaction.InputBox("Digite o código que foi enviado por notificação", "Mensagem do sistema");
+                                        if(ez == z)
+                                        {
+                                            string senhanova = b[i].Item1 + "3232";
+                                            u.editUsuario(i, b[i].Item1, b[i].Item2, b[i].Item3, senhanova);
+                                            sE = senhanova;
+                                            MessageBox.Show("Sua nova senha é " + sE, "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            u.setSMtrue();
+                                        }
                                     }
                                     catch (Exception)
                                     {

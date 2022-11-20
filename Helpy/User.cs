@@ -6,11 +6,23 @@ namespace Helpy
 {
     class User
     {
-        public static List<Tuple<string,string,string,string>> usuario = new List<Tuple<string,string,string,string>>();    
-        
+        public static List<Tuple<string,string,string,string>> usuario = new List<Tuple<string,string,string,string>>();
+        public static bool SM = false;
         public static int posAtual = 0;
         public static int count = 0;
 
+        public bool getSM()
+        {
+            return SM;
+        }
+        public void setSMtrue()
+        {
+            SM = true;
+        }
+        public void setSMfalse()
+        {
+            SM = false;
+        }
         public int getposAtual()
         {
             return posAtual;
