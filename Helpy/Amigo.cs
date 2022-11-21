@@ -57,6 +57,13 @@ namespace Helpy
         {
             amigo.Add(Tuple.Create(minhapos,nomeamigo));
         }
+        public void editAmigo(int posamigo,int minhapos,string nomeamigo)
+        {
+            List<Tuple<int,string>> edit = new List<Tuple<int,string>>();
+            edit.Add(Tuple.Create(minhapos, nomeamigo));
+            amigo[posamigo] = edit[0];
+            edit.RemoveAt(0);
+        }
         public int getPosamigo()
         {
             return posAmigo;

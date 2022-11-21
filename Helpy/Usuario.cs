@@ -46,9 +46,20 @@ namespace Helpy
                         }
                         else
                         {
+                            string nomeantigo = b[u.getposAtual()].Item1;
                             u.editUsuario(i, textBox2.Text, b[i].Item2, b[i].Item3, b[i].Item4);
                             List<Tuple<string, string, string, string>> z = u.getUsuario();
                             label1.Text = z[i].Item1;
+                            string nomeatual = z[i].Item1;
+                            Amigo am = new Amigo();
+                            List<Tuple<int, string>> s = am.getAmigo();
+                            for (int j = 0; j < am.getcontAmigo(); j++)
+                            {
+                                if (s[j].Item2 == nomeantigo)
+                                {
+                                    am.editAmigo(j, s[j].Item1, nomeatual);
+                                }
+                            }
                         }
                         
                     }
@@ -64,12 +75,15 @@ namespace Helpy
 
         private void button5_Click(object sender, EventArgs e)
         {
+            Amigo am = new Amigo();
             User u = new User();
             List<Tuple<string, string, string, string>> b = u.getUsuario();
             Calendario cal = new Calendario();
             List<Tuple<int, string, string, string>> c = cal.getEvento();
             List<Tuple<int, string>> d = cal.getTarefa();
             List<Tuple<int, string>> l = cal.getLocal();
+            List<Tuple<int, string>> amg = am.getAmigo();
+            
             int contador = 0;
             int obvio = u.getposAtual() + 1;
             for (int v = 0; v < u.getCount(); v++)
@@ -81,63 +95,91 @@ namespace Helpy
             }
             int cont = 1;
             int a = u.getposAtual() + cont;
-            if (cal.getcontItem() > 0)
+            string ez = Interaction.InputBox("Digite sua senha para confirmar a deleção da conta", "Mensagem do Sistema");
+            if(ez == b[u.getposAtual()].Item4)
             {
-                for (int i = 0; i < cal.getcontItem(); i++)
+                if (cal.getcontItem() > 0)
                 {
-
-
-                    if (c[i].Item1 == a)
-                    {
-                        cal.editEvento(i, u.getposAtual(), c[i].Item2, c[i].Item3, c[i].Item4);
-
-                        cal.editLocal(i, u.getposAtual(), l[i].Item2);
-
-
-
-                    }
-                    if (c[i].Item1 == a + 1)
+                    for (int i = 0; i < cal.getcontItem(); i++)
                     {
 
-                        cal.editEvento(i, obvio, c[i].Item2, c[i].Item3, c[i].Item4);
 
-                        cal.editLocal(i, obvio, l[i].Item2);
-                        a++;
-                        obvio++;
+                        if (c[i].Item1 == a)
+                        {
+                            cal.editEvento(i, u.getposAtual(), c[i].Item2, c[i].Item3, c[i].Item4);
 
-                    }
-
+                            cal.editLocal(i, u.getposAtual(), l[i].Item2);
 
 
 
-                }
-            }
-            if(cal.getcontTarefa()>0)
-            {
-                for (int j = 0; j < cal.getcontTarefa(); j++)
-                {
-                    a = u.getCount() + 1;
-                    obvio = u.getCount() + 1;
-                    if (d[j].Item1 == a)
-                    {
-                        cal.editTarefa(u.getposAtual(), j, d[j].Item2);
-                    }
-                    if (d[j].Item1 == a + 1)
-                    {
-                        cal.editTarefa(obvio, j, d[j].Item2);
-                        a++;
-                        obvio++;
+                        }
+                        if (c[i].Item1 == a + 1)
+                        {
+
+                            cal.editEvento(i, obvio, c[i].Item2, c[i].Item3, c[i].Item4);
+
+                            cal.editLocal(i, obvio, l[i].Item2);
+                            a++;
+                            obvio++;
+
+                        }
+
+
+
+
                     }
                 }
+                if (cal.getcontTarefa() > 0)
+                {
+                    for (int j = 0; j < cal.getcontTarefa(); j++)
+                    {
+                        a = u.getposAtual() + 1;
+                        obvio = u.getposAtual() + 1;
+                        if (d[j].Item1 == a)
+                        {
+                            cal.editTarefa(u.getposAtual(), j, d[j].Item2);
+                        }
+                        if (d[j].Item1 == a + 1)
+                        {
+                            cal.editTarefa(obvio, j, d[j].Item2);
+                            a++;
+                            obvio++;
+                        }
+                    }
+                }
+               
+                if (am.getcontAmigo()>0)
+                {
+                    for(int i = 0;i<am.getcontAmigo();i++)
+                    {
+                        a = u.getposAtual() + 1;
+                        obvio = u.getposAtual() + 1;
+                        if (amg[i].Item1 == a)
+                        {
+                            am.editAmigo(i, u.getposAtual(), amg[i].Item2);
+                        }
+                        if (amg[i].Item1 == a+1)
+                        {
+                            am.editAmigo(obvio,i,amg[i].Item2);
+                            a++;
+                            obvio++;
+                        }
+                    }
+                }
+
+                u.delUsuario(u.getposAtual());
+                u.delCount();
+                var form = Application.OpenForms["Homepage"] as Homepage;
+                if (form != null)
+                {
+                    form.butlogoff.PerformClick();
+                }
             }
-           
-            u.delUsuario(u.getposAtual());
-            u.delCount();
-            var form = Application.OpenForms["Homepage"] as Homepage;
-            if(form!= null)
+            else
             {
-                form.butlogoff.PerformClick();
+                MessageBox.Show("Senha incorreta!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
 

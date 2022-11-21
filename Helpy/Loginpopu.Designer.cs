@@ -69,9 +69,11 @@
             // buttonlogin
             // 
             this.buttonlogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonlogin.Location = new System.Drawing.Point(180, 422);
+            this.buttonlogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(122)))), ((int)(((byte)(181)))));
+            this.buttonlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonlogin.Location = new System.Drawing.Point(172, 422);
             this.buttonlogin.Name = "buttonlogin";
-            this.buttonlogin.Size = new System.Drawing.Size(130, 36);
+            this.buttonlogin.Size = new System.Drawing.Size(145, 36);
             this.buttonlogin.TabIndex = 8;
             this.buttonlogin.UseVisualStyleBackColor = true;
             this.buttonlogin.Click += new System.EventHandler(this.Buttonlogin_Click);

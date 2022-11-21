@@ -49,23 +49,32 @@ namespace Helpy
                 {
                     string[] dt = maskedTextBox2.Text.Split('/');
                     int mes = int.Parse(dt[1]);
+                    string data;
+                    meunome = "-" + meunome + "-" + textBox1.Text;
                     if (mes<=12)
 
-                    { int conta = 12 - mes;
+                    { int conta = 13 - mes;
                         for(int i = 0;i<conta;i++)
                         {
-                           
-                            dt[1] = mes.ToString();
-                            string data = dt[0] + "/" + dt[1] + "/" + dt[2];
+                            if (mes < 10)
+                            {
+                                dt[1] = "0" + mes.ToString();
+                            }
+                            if (mes >= 10)
+                            {
+                                dt[1] = mes.ToString();
+                            }
+                            
+                             data = dt[0] + "/" + dt[1] + "/" + dt[2];
                             cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, data);
-                            meunome = "-" + meunome + "-" + textBox1.Text;
+                            
                             cal.setLocal(u.getposAtual(), textBox2.Text);
                             cal.setEvento(posamigo, meunome, maskedTextBox1.Text, data);
                             cal.setLocal(posamigo, textBox2.Text);
                             List<Tuple<int, string, string, string>> b = cal.getEvento();
                             ListViewItem item = new ListViewItem(textBox1.Text);
                           
-                            item.SubItems.Add(maskedTextBox2.Text);
+                            item.SubItems.Add(data);
                             item.SubItems.Add(maskedTextBox1.Text);
                             item.SubItems.Add(textBox2.Text);
                             listView1.Items.Add(item);
@@ -79,8 +88,11 @@ namespace Helpy
                 if (!checkBox1.Checked)
                 {
                     cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
-                    cal.setEvento(posamigo, textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
+                    meunome = "-" + meunome + "-" + textBox1.Text;
+                    cal.setLocal(u.getposAtual(), textBox2.Text);
+                    cal.setEvento(posamigo, meunome, maskedTextBox1.Text, maskedTextBox2.Text);
                     cal.setLocal(posamigo, textBox2.Text);
+                    
                     cal.setLocal(u.getposAtual(), textBox2.Text);
 
                     List<Tuple<int, string, string, string>> b = cal.getEvento();

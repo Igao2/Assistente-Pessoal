@@ -99,9 +99,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(142, 393);
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(122)))), ((int)(((byte)(181)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(158, 400);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 38);
+            this.button1.Size = new System.Drawing.Size(148, 23);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
