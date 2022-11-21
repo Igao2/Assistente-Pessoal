@@ -102,34 +102,47 @@ namespace Helpy
                 if (checkBox1.Checked)
                 {
                     string[] dt = maskedTextBox2.Text.Split('/');
-                    int mes = int.Parse(dt[1]);
+                    int mes = int.Parse(dt[1],00);
                     if (mes <= 12)
 
                     {
-                        int conta = 13 - mes;
+                        double conta = 13 - mes;
                         string data;
                         for (int i = 0; i < conta; i++)
                         {
-
-                            dt[1] = mes.ToString();
-                            data = dt[0] + "/" + dt[1] + "/" + dt[2];
-                            cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, data);
-                           
-                            cal.setLocal(u.getposAtual(), textBox2.Text);
-                           
-                            List<Tuple<int, string, string, string>> b = cal.getEvento();
-                            ListViewItem item = new ListViewItem(textBox1.Text);
-                          
-                            item.SubItems.Add(data);
-                            item.SubItems.Add(maskedTextBox1.Text);
-                            item.SubItems.Add(textBox2.Text);
-                            listView1.Items.Add(item);
-                           
                             cal.setcontItem();
+                            if (mes<10)
+                            {
+                                dt[1] = "0" + mes.ToString();
+                            }
+                            if(mes>=10)
+                            {
+                                dt[1] = mes.ToString();
+                            }
+                            data = dt[0] + "/" + dt[1] + "/" + dt[2];
+
+                            string mees = "Mes: " + i + textBox1.Text;
+                            cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, data);
+
+                                cal.setLocal(u.getposAtual(), textBox2.Text);
+
+                                List<Tuple<int, string, string, string>> bc = cal.getEvento();
+                                ListViewItem itemm = new ListViewItem(textBox1.Text);
+
+                                itemm.SubItems.Add(data);
+                                itemm.SubItems.Add(maskedTextBox1.Text);
+                                itemm.SubItems.Add(textBox2.Text);
+                                listView1.Items.Add(itemm);
+
+                                
+                            
+                            
+                            
                             mes++;
                         }
 
                     }
+
                 }
                 if(!checkBox1.Checked && !checkBox2.Checked)
                 {
@@ -160,6 +173,7 @@ namespace Helpy
                     int contador = anofinal - ano;
                     for(int i = 0;i<contador;i++)
                     {
+                        cal.setcontItem();
                         dt[2] = ano.ToString();
                         data = dt[0] + "/" + dt[1] + "/" + dt[2];
                         cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, data);
@@ -171,28 +185,13 @@ namespace Helpy
                         item.SubItems.Add(textBox2.Text);
                         listView1.Items.Add(item);
                         ano++;
-                        cal.setcontItem();
+                        
+                        
+                        
                     }
                     
                 }
-                if (!checkBox2.Checked && !checkBox1.Checked)
-                    
-
-                {
-                    cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
-
-                    cal.setLocal(u.getposAtual(), textBox2.Text);
-
-                    List<Tuple<int, string, string, string>> b = cal.getEvento();
-                    ListViewItem item = new ListViewItem(textBox1.Text);
-
-                    item.SubItems.Add(maskedTextBox2.Text);
-                    item.SubItems.Add(maskedTextBox1.Text);
-                    item.SubItems.Add(textBox2.Text);
-                    listView1.Items.Add(item);
-
-                    cal.setcontItem();
-                }
+               
             }
 
 
@@ -340,21 +339,24 @@ namespace Helpy
                     {
                         List<Tuple<int, string, string, string>> f = cal.getEvento();
 
-                        if (f[i].Item2 == list.Text)
+                        if (f[i].Item4 == list.SubItems[1].Text)
                         {
-                            
-                             cal.delEvento(i);
+                            cal.contmenosItem();
+                            cal.delEvento(i);
                             cal.delLocal(i);
-
-
+                            listView1.Items.Remove(list);
+                            break;
+                            
+                            
                         }
 
 
                     }
+                    
 
-                    listView1.Items.Remove(list);
 
-                    cal.contmenosItem();
+
+
                 }
 
 

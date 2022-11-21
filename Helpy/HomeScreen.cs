@@ -69,6 +69,7 @@ namespace Helpy
             }
             DateTime dat = new DateTime();
             dat = calAtual.SelectionStart;
+       
             string date = dat.ToShortDateString();
             
             List<Tuple<int, string, string, string>> n = cal.getEvento();
@@ -81,7 +82,7 @@ namespace Helpy
                 {
                     if (n[i].Item1 == poss)
                     {
-                        if (n[i].Item4.Contains(date))
+                        if (n[i].Item4.Contains(dat.ToShortDateString()))
                         {
                             a = a +
                                 "\n" + n[i].Item2 + ","+ "horário: " + n[i].Item3;
