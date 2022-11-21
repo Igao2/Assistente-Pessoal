@@ -45,34 +45,154 @@ namespace Helpy
             Amigo am = new Amigo();
             if(am.gettRue()==true)
             {
-                cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
-                meunome = "-"+meunome+"-"+textBox1.Text;
-                cal.setLocal(u.getposAtual(), textBox2.Text);
-                cal.setEvento(posamigo, meunome, maskedTextBox1.Text, maskedTextBox2.Text);
-                cal.setLocal(posamigo, textBox2.Text);
-                List<Tuple<int, string, string, string>> b = cal.getEvento();
-                ListViewItem item = new ListViewItem();
-                item.SubItems.Add(textBox1.Text);
-                item.SubItems.Add(maskedTextBox2.Text);
-                item.SubItems.Add(maskedTextBox1.Text);
-                item.SubItems.Add(textBox2.Text);
-                listView1.Items.Add(item);
-                cal.setcontItem();
-                cal.setcontItem();
-                
+                if (checkBox1.Checked)
+                {
+                    string[] dt = maskedTextBox2.Text.Split('/');
+                    int mes = int.Parse(dt[1]);
+                    if (mes<=12)
+
+                    { int conta = 12 - mes;
+                        for(int i = 0;i<conta;i++)
+                        {
+                           
+                            dt[1] = mes.ToString();
+                            string data = dt[0] + "/" + dt[1] + "/" + dt[2];
+                            cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, data);
+                            meunome = "-" + meunome + "-" + textBox1.Text;
+                            cal.setLocal(u.getposAtual(), textBox2.Text);
+                            cal.setEvento(posamigo, meunome, maskedTextBox1.Text, data);
+                            cal.setLocal(posamigo, textBox2.Text);
+                            List<Tuple<int, string, string, string>> b = cal.getEvento();
+                            ListViewItem item = new ListViewItem(textBox1.Text);
+                          
+                            item.SubItems.Add(maskedTextBox2.Text);
+                            item.SubItems.Add(maskedTextBox1.Text);
+                            item.SubItems.Add(textBox2.Text);
+                            listView1.Items.Add(item);
+                            cal.setcontItem();
+                            cal.setcontItem();
+                            mes++;
+                        }
+                       
+                    }
+                }
+                if (!checkBox1.Checked)
+                {
+                    cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
+                    cal.setEvento(posamigo, textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
+                    cal.setLocal(posamigo, textBox2.Text);
+                    cal.setLocal(u.getposAtual(), textBox2.Text);
+
+                    List<Tuple<int, string, string, string>> b = cal.getEvento();
+                    ListViewItem item = new ListViewItem(textBox1.Text);
+          
+                    item.SubItems.Add(maskedTextBox2.Text);
+                    item.SubItems.Add(maskedTextBox1.Text);
+                    item.SubItems.Add(textBox2.Text);
+                    listView1.Items.Add(item);
+
+                    cal.setcontItem();
+                    cal.setcontItem();
+                }
+
+
             }
             else
             {
-                cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
-                cal.setLocal(u.getposAtual(), textBox2.Text);
-                List<Tuple<int, string, string, string>> b = cal.getEvento();
-                ListViewItem item = new ListViewItem(textBox1.Text);
-                item.SubItems.Add(maskedTextBox2.Text);
-                item.SubItems.Add(maskedTextBox1.Text);
-                item.SubItems.Add(textBox2.Text);
-                 listView1.Items.Add(item);
+                if (checkBox1.Checked)
+                {
+                    string[] dt = maskedTextBox2.Text.Split('/');
+                    int mes = int.Parse(dt[1]);
+                    if (mes <= 12)
 
-                cal.setcontItem();
+                    {
+                        int conta = 13 - mes;
+                        string data;
+                        for (int i = 0; i < conta; i++)
+                        {
+
+                            dt[1] = mes.ToString();
+                            data = dt[0] + "/" + dt[1] + "/" + dt[2];
+                            cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, data);
+                           
+                            cal.setLocal(u.getposAtual(), textBox2.Text);
+                           
+                            List<Tuple<int, string, string, string>> b = cal.getEvento();
+                            ListViewItem item = new ListViewItem(textBox1.Text);
+                          
+                            item.SubItems.Add(data);
+                            item.SubItems.Add(maskedTextBox1.Text);
+                            item.SubItems.Add(textBox2.Text);
+                            listView1.Items.Add(item);
+                           
+                            cal.setcontItem();
+                            mes++;
+                        }
+
+                    }
+                }
+                if(!checkBox1.Checked && !checkBox2.Checked)
+                {
+                    cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
+
+                    cal.setLocal(u.getposAtual(), textBox2.Text);
+
+                    List<Tuple<int, string, string, string>> b = cal.getEvento();
+                    ListViewItem item = new ListViewItem(textBox1.Text);
+               
+                    item.SubItems.Add(maskedTextBox2.Text);
+                    item.SubItems.Add(maskedTextBox1.Text);
+                    item.SubItems.Add(textBox2.Text);
+                    listView1.Items.Add(item);
+
+                    cal.setcontItem();
+                }
+                if(checkBox2.Checked)
+                {
+                    string[] dt = maskedTextBox2.Text.Split('/');
+                    string data;
+                    int ano = int.Parse(dt[2]);
+                  DateTime dat = DateTime.Now.AddYears(3);
+                    string v = dat.ToString();
+                    int anofinal = dat.Year;
+                    
+                    
+                    int contador = anofinal - ano;
+                    for(int i = 0;i<contador;i++)
+                    {
+                        dt[2] = ano.ToString();
+                        data = dt[0] + "/" + dt[1] + "/" + dt[2];
+                        cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, data);
+                        cal.setLocal(u.getposAtual(), textBox2.Text);
+                        ListViewItem item = new ListViewItem(textBox1.Text);
+
+                        item.SubItems.Add(data);
+                        item.SubItems.Add(maskedTextBox1.Text);
+                        item.SubItems.Add(textBox2.Text);
+                        listView1.Items.Add(item);
+                        ano++;
+                        cal.setcontItem();
+                    }
+                    
+                }
+                if (!checkBox2.Checked && !checkBox1.Checked)
+                    
+
+                {
+                    cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
+
+                    cal.setLocal(u.getposAtual(), textBox2.Text);
+
+                    List<Tuple<int, string, string, string>> b = cal.getEvento();
+                    ListViewItem item = new ListViewItem(textBox1.Text);
+
+                    item.SubItems.Add(maskedTextBox2.Text);
+                    item.SubItems.Add(maskedTextBox1.Text);
+                    item.SubItems.Add(textBox2.Text);
+                    listView1.Items.Add(item);
+
+                    cal.setcontItem();
+                }
             }
 
 
@@ -238,6 +358,22 @@ namespace Helpy
                 }
 
 
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked && checkBox2.Checked)
+            {
+                checkBox2.Checked = false;
+            }
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked && checkBox2.Checked)
+            {
+                checkBox1.Checked = false;
             }
         }
     }
