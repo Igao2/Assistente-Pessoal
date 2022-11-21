@@ -41,6 +41,10 @@ namespace Helpy
         {
             count++;
         }
+        public void delCount()
+        {
+            count--;
+        }
         public List<Tuple<string,string,string,string>> getUsuario()
         {
             return usuario;
@@ -55,6 +59,10 @@ namespace Helpy
             b.Add(Tuple.Create(nome, email, telefone, senha));
             usuario[posusuario] = b[0];
             b.RemoveAt(0);
+        }
+        public void delUsuario(int i)
+        {
+            usuario.RemoveAt(i);
         }
     }
 }

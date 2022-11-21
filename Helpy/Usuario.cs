@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,14 +25,34 @@ namespace Helpy
             Calendario cal = new Calendario();
             User u = new User();
             List<Tuple<string, string, string, string>> b = u.getUsuario();
+            List<String> c = new List<string>();
+            for(int j = 0; j < u.getCount(); j++)
+            {
+                c.Add(b[j].Item1);
+            }
             int contador = u.getCount();
+            string a = Interaction.InputBox("Digite sua senha para confirmar a troca de nome de usuario");
+    
             for(int i = 0; i<contador;i++)
             {
                 if (i==u.getposAtual())
                 {
-                    u.editUsuario(i, textBox2.Text, b[i].Item2, b[i].Item3, b[i].Item4);
-                    List<Tuple<string, string, string, string>> z = u.getUsuario();
-                    label1.Text = z[i].Item1;
+                   
+                    if (b[i].Item4==a)
+                    {
+                        if (c.Contains(textBox2.Text))
+                        {
+                            MessageBox.Show("Nome de usuário já existe", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            u.editUsuario(i, textBox2.Text, b[i].Item2, b[i].Item3, b[i].Item4);
+                            List<Tuple<string, string, string, string>> z = u.getUsuario();
+                            label1.Text = z[i].Item1;
+                        }
+                        
+                    }
+                   
                 }
             }
         }
@@ -38,5 +61,90 @@ namespace Helpy
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            User u = new User();
+            List<Tuple<string, string, string, string>> b = u.getUsuario();
+            Calendario cal = new Calendario();
+            List<Tuple<int, string, string, string>> c = cal.getEvento();
+            List<Tuple<int, string>> d = cal.getTarefa();
+            List<Tuple<int, string>> l = cal.getLocal();
+            int contador = 0;
+            int obvio = u.getposAtual() + 1;
+            for (int v = 0; v < u.getCount(); v++)
+            {
+                if (v > u.getposAtual())
+                {
+                    contador++;
+                }
+            }
+            int cont = 1;
+            int a = u.getposAtual() + cont;
+            if (cal.getcontItem() > 0)
+            {
+                for (int i = 0; i < cal.getcontItem(); i++)
+                {
+
+
+                    if (c[i].Item1 == a)
+                    {
+                        cal.editEvento(i, u.getposAtual(), c[i].Item2, c[i].Item3, c[i].Item4);
+
+                        cal.editLocal(i, u.getposAtual(), l[i].Item2);
+
+
+
+                    }
+                    if (c[i].Item1 == a + 1)
+                    {
+
+                        cal.editEvento(i, obvio, c[i].Item2, c[i].Item3, c[i].Item4);
+
+                        cal.editLocal(i, obvio, l[i].Item2);
+                        a++;
+                        obvio++;
+
+                    }
+
+
+
+
+                }
+            }
+            if(cal.getcontTarefa()>0)
+            {
+                for (int j = 0; j < cal.getcontTarefa(); j++)
+                {
+                    a = u.getCount() + 1;
+                    obvio = u.getCount() + 1;
+                    if (d[j].Item1 == a)
+                    {
+                        cal.editTarefa(u.getposAtual(), j, d[j].Item2);
+                    }
+                    if (d[j].Item1 == a + 1)
+                    {
+                        cal.editTarefa(obvio, j, d[j].Item2);
+                        a++;
+                        obvio++;
+                    }
+                }
+            }
+           
+            u.delUsuario(u.getposAtual());
+            u.delCount();
+            var form = Application.OpenForms["Homepage"] as Homepage;
+            if(form!= null)
+            {
+                form.butlogoff.PerformClick();
+            }
+        }
+
+
+
+
+
     }
 }
+
+

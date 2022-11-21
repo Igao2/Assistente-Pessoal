@@ -95,5 +95,12 @@ namespace Helpy
         {
             tarefa.RemoveAt(z);
         }
+        public void editTarefa(int posusuario,int postarefa,string nome)
+        {
+            List<Tuple<int, string>> edittarefa = new List<Tuple<int, string>>();
+            edittarefa.Add(Tuple.Create(posusuario, nome));
+            tarefa[postarefa] = edittarefa[0];
+            edittarefa.RemoveAt(0);
+        }
     }
 }

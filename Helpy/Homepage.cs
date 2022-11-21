@@ -31,7 +31,7 @@ namespace Helpy
             List<Tuple<string, string, string, string>> b = u.getUsuario();
             int cont = u.getCount();
             int posatual = u.getposAtual();
-
+            label3.Text = posatual.ToString();
             for(int i =0;i<cont;i++)
             {
                 if(i == posatual)

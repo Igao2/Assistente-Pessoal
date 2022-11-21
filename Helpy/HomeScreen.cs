@@ -28,7 +28,7 @@ namespace Helpy
             {
                 for (int i = 0; i < conT; i++)
                 {
-                    
+                    listBox1.Items.Add(eve[i]);
                     if (eve[i].Item1 == posatual)
                     {
                         ListViewItem item = new ListViewItem(eve[i].Item2);
@@ -105,6 +105,8 @@ namespace Helpy
 
                 label1.Text = dat.ToShortDateString() + " Sem compromissos";
             }
+            
+            
         }
         List<Tuple<int, string, string, string>> b = new List<Tuple<int, string, string, string>>();
         public List<Tuple<int,string,string,string>> getB()
