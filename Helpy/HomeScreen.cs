@@ -28,7 +28,7 @@ namespace Helpy
             {
                 for (int i = 0; i < conT; i++)
                 {
-                    listBox1.Items.Add(eve[i]);
+                    
                     if (eve[i].Item1 == posatual)
                     {
                         ListViewItem item = new ListViewItem(eve[i].Item2);

@@ -63,11 +63,7 @@ namespace Helpy
             
         }
 
-        private void Homepage_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-
-        }
+        
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -127,7 +123,7 @@ namespace Helpy
         private void butlogoff_Click(object sender, EventArgs e)
         {
             Cadastro cad = new Cadastro();
-            this.Hide();
+            this.Close();
             cad.Show();
         }
 
@@ -224,6 +220,16 @@ namespace Helpy
             Usuario usuario = new Usuario() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             this.formLoader.Controls.Add(usuario);
             usuario.Show();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

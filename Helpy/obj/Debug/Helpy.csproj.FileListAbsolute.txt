@@ -59,3 +59,20 @@ C:\Users\aluno\Desktop\Enari\Helpy\obj\Debug\Helpy.Friendpage.resources
 C:\Users\aluno\Desktop\Enari\Helpy\obj\Debug\Helpy.HomeScreen.resources
 C:\Users\aluno\Desktop\Enari\Helpy\obj\Debug\Helpy.Tasks.resources
 C:\Users\Igor\Desktop\Helpy\Helpy\obj\Debug\Helpy.Usuario.resources
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\bin\Debug\Helpy.exe.config
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\bin\Debug\Helpy.exe
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\bin\Debug\Helpy.pdb
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.csprojAssemblyReference.cache
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Compromisso.resources
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Cadastro.resources
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Friendpage.resources
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Homepage.resources
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.HomeScreen.resources
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Loginpopu.resources
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Properties.Resources.resources
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Tasks.resources
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Usuario.resources
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.csproj.GenerateResource.cache
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.csproj.CoreCompileInputs.cache
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.exe
+C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.pdb
