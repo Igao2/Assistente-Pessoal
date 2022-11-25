@@ -76,3 +76,4 @@ C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.cspro
 C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.csproj.CoreCompileInputs.cache
 C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.exe
 C:\Users\aluno\Desktop\Nova Pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.pdb
+C:\Users\aluno\Desktop\Enari\Helpy\obj\Debug\Helpy.Usuario.resources

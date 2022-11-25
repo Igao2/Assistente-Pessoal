@@ -19,20 +19,12 @@ namespace Helpy
             int cont = cal.getcontTarefa();
             User u = new User();
             int posatual = u.getposAtual();
-            List<Tuple<int, string>> b = cal.getTarefa();
-            if(cont>0)
-            {
-                for(int i = 0;i<cont;i++)
-                {
-                    if (b[i].Item1 == posatual)
-                    {
-                        checkedListBox1.Items.Add(b[i].Item2);
-                    }
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.BackColor = Color.Transparent;
 
-                }
-                
-
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -40,8 +32,8 @@ namespace Helpy
             User u = new User();
             int posatual = u.getposAtual();
             Calendario cal = new Calendario();
-            cal.setTarefa(posatual, textBox1.Text);
-            checkedListBox1.Items.Add(textBox1.Text);
+            cal.setTarefa(posatual, textBox2.Text);
+            checkedListBox1.Items.Add(textBox2.Text);
             cal.setcontTarefa();
         }
 
@@ -56,6 +48,46 @@ namespace Helpy
             
         }
 
-       
+        private void CheckedListBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+
+                DialogResult dr = MessageBox.Show("Deseja excluir a tarefa?", "Mensagem do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Yes)
+                {
+                    Calendario cal = new Calendario();
+                    User u = new User();
+                    int iteM = cal.getcontTarefa();
+                    object list = checkedListBox1.SelectedItem;
+
+
+                    for (int i = 0; i < iteM; i++)
+                    {
+                        List<Tuple<int, string>> f = cal.getTarefa();
+
+                        if (f[i].Item2 == checkedListBox1.Text)
+                        {
+                            cal.delcontTarefa();
+                            cal.removeTarefa(i);
+
+                            checkedListBox1.Items.Remove(list);
+                            break;
+
+
+                        }
+
+
+                    }
+
+
+
+
+
+                }
+
+
+            }
+        }
     }
 }

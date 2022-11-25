@@ -43,6 +43,7 @@ namespace Helpy
             User u = new User();
             int a = cal.getcontItem();
             Amigo am = new Amigo();
+            if(textBox4.Text)
             if(am.gettRue()==true)
             {
                 if (checkBox1.Checked)

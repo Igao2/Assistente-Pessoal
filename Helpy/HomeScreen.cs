@@ -24,25 +24,6 @@ namespace Helpy
             int posatual = u.getposAtual();
             int conT = cal.getcontItem();
 
-            if (conT > 0)
-            {
-                for (int i = 0; i < conT; i++)
-                {
-                    
-                    if (eve[i].Item1 == posatual)
-                    {
-                        ListViewItem item = new ListViewItem(eve[i].Item2);
-                        item.SubItems.Add(eve[i].Item4);
-                        item.SubItems.Add(eve[i].Item3);
-                        listView1.Items.Add(item);
-
-                    }
-                }
-                
-
-
-            }
-            
             int posatua = u.getposAtual();
             int contador = cal.getcontItem();
             if (contador > 0)
@@ -106,8 +87,24 @@ namespace Helpy
 
                 label1.Text = dat.ToShortDateString() + " Sem compromissos";
             }
-            
-            
+            List<Tuple<int, string>> b = cal.getTarefa();
+            int cont = cal.getcontTarefa();
+            if (cont > 0)
+            {
+                for (int i = 0; i < cont; i++)
+                {
+                    if (b[i].Item1 == posatual)
+                    {
+                        checkedListBox1.Items.Add(b[i].Item2);
+                    }
+
+                }
+
+
+            }
+
+
+
         }
         List<Tuple<int, string, string, string>> b = new List<Tuple<int, string, string, string>>();
         public List<Tuple<int,string,string,string>> getB()
@@ -190,10 +187,7 @@ namespace Helpy
            
         }
 
-        private void ListView1_MouseHover(object sender, EventArgs e)
-        {
-            information.SetToolTip(this.listView1, "Pressione o botão delete para deletar o compromisso");
-        }
+        
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -201,112 +195,56 @@ namespace Helpy
            
         }
 
-        private void ListView1_KeyPress(object sender, KeyPressEventArgs e)
+        private void CheckedListBox1_KeyUp(object sender, KeyEventArgs e)
         {
-            char b = e.KeyChar;
-            label2.Text = b.ToString();
-        }
-
-        private void ListView1_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
+            if(e.KeyCode== Keys.Delete)
             {
-
-                DialogResult dr = MessageBox.Show("Deseja excluir o compromisso?", "Mensagem do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dr == DialogResult.Yes)
+                if (e.KeyCode == Keys.Delete)
                 {
-                    Calendario cal = new Calendario();
-                    User u = new User();
-                    int iteM = cal.getcontItem();
-                    ListViewItem list = new ListViewItem();
-                    list = listView1.SelectedItems[0];
-                    int ano = 2022;
-                    int mes = 03;
-                    int dia = 02;
-                    DateTime dT = new DateTime(ano, mes, dia);
-                    for (int i = 0; i < iteM; i++)
+
+                    DialogResult dr = MessageBox.Show("Deseja excluir o compromisso?", "Mensagem do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.Yes)
                     {
-                        List<Tuple<int, string, string, string>> f = cal.getEvento();
+                        Calendario cal = new Calendario();
+                        User u = new User();
+                        int iteM = cal.getcontTarefa();
+                        object list = checkedListBox1.SelectedItem;
 
-                        if (f[i].Item2 == list.Text)
+
+                        for (int i = 0; i < iteM; i++)
                         {
-                            string dt = f[i].Item4;
-                            string[] data = dt.Split('/');
-                            ano = int.Parse(data[2]);
-                            mes = int.Parse(data[1]);
-                            dia = int.Parse(data[0]);
+                            List<Tuple<int, string>> f = cal.getTarefa();
 
-
-                            dT = new DateTime(ano, mes, dia);
-                            cal.delEvento(i);
-                            calAtual.RemoveBoldedDate(dT);
-
-
-                        }
-                       
-
-                    }
-
-                    listView1.Items.Remove(list);
-
-                    cal.contmenosItem();
-                }
-
-
-            }
-            if (e.KeyCode == Keys.E)
-            {
-                Calendario cal = new Calendario();
-                User u = new User();
-                int iteM = cal.getcontItem();
-                ListViewItem list = new ListViewItem();
-                list = listView1.SelectedItems[0];
-                int ano = 2022;
-                int mes = 03;
-                int dia = 02;
-                DateTime dT = new DateTime(ano, mes, dia);
-                List<Tuple<int, string, string, string>> f = cal.getEvento();
-                for (int i = 0; i < iteM; i++)
-                {
-                    
-                if(list.Text != "")
-                    {
-                        if (f[i].Item2 == list.Text)
-                        {
-                            if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
+                            if (f[i].Item2 == checkedListBox1.Text)
                             {
-
-                                cal.editEvento(i, u.getposAtual(), textBox1.Text, textBox3.Text, textBox2.Text);
-
-                                string dt = textBox2.Text;
-                                string[] data = dt.Split('/');
-                                ano = int.Parse(data[2]);
-                                mes = int.Parse(data[1]);
-                                dia = int.Parse(data[0]);
+                                cal.delcontTarefa();
+                                cal.removeTarefa(i);
+                               
+                                checkedListBox1.Items.Remove(list);
+                                break;
 
 
-                                dT = new DateTime(ano, mes, dia);
-                             
-
-                                
-                                ListViewItem item = new ListViewItem(textBox1.Text);
-                                item.SubItems.Add(textBox2.Text);
-                                item.SubItems.Add(textBox3.Text);
-                                listView1.Items.Add(item);
-                                listView1.Items.Remove(list);
-
-                                
                             }
+
+
                         }
+
+
+
+
+
                     }
-                    
-                    calAtual.AddBoldedDate(dT);
+
 
                 }
-
+                
+                
             }
         }
 
-        
+        private void CheckedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

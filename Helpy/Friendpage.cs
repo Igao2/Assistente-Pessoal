@@ -15,6 +15,11 @@ namespace Helpy
         public Friendpage()
         {
             InitializeComponent();
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.BackColor = Color.Transparent;
         }
         bool find = false;
         string meunome;
@@ -79,7 +84,7 @@ namespace Helpy
                         {
                             nomeamigo = b[i].Item2;
                             meunome = s[pos].Item1;
-                            DialogResult dr = MessageBox.Show("O usuário " + b[i].Item2 + " Lhe enviou uma solicitação de amizade,deseja aceitar?", "Mensagem do Sistema", MessageBoxButtons.YesNoCancel);
+                            DialogResult dr = MessageBox.Show("O usuário " + b[i].Item2 + " lhe enviou uma solicitação de amizade,deseja aceitar?", "Mensagem do Sistema", MessageBoxButtons.YesNoCancel);
                             if (dr == DialogResult.Yes)
                             {
                                 for (int j = 0; j < s.Count; j++)
@@ -110,6 +115,16 @@ namespace Helpy
                     }
                 }   
             }
+        }
+
+        private void ListView1_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
