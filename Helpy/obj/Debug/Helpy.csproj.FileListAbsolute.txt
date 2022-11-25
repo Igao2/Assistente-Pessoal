@@ -95,3 +95,21 @@ C:\Users\Igor\Desktop\Nova pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.csproj
 C:\Users\Igor\Desktop\Nova pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.csproj.CoreCompileInputs.cache
 C:\Users\Igor\Desktop\Nova pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.exe
 C:\Users\Igor\Desktop\Nova pasta\Assistente-Pessoal\Helpy\obj\Debug\Helpy.pdb
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\bin\Debug\Helpy.exe.config
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\bin\Debug\Helpy.exe
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\bin\Debug\Helpy.pdb
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.csproj.AssemblyReference.cache
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.csproj.SuggestedBindingRedirects.cache
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Compromisso.resources
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Cadastro.resources
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Friendpage.resources
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Homepage.resources
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.HomeScreen.resources
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Loginpopu.resources
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Properties.Resources.resources
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Tasks.resources
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.Usuario.resources
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.csproj.GenerateResource.cache
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.csproj.CoreCompileInputs.cache
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.exe
+C:\Users\Igor\Desktop\Nova pasta (2)\Assistente-Pessoal\Helpy\obj\Debug\Helpy.pdb

@@ -182,11 +182,65 @@ namespace Helpy
             
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Calendario cal = new Calendario();
+            string arroba = "@";
+            string pontocom = ".com";
+            User u = new User();
+            List<Tuple<string, string, string, string>> b = u.getUsuario();
+            List<String> c = new List<string>();
+            for (int j = 0; j < u.getCount(); j++)
+            {
+                c.Add(b[j].Item1);
+            }
+            int contador = u.getCount();
+            if(textBox1.Text.Contains(arroba)&&textBox1.Text.Contains(pontocom))
+            {
+                string a = Interaction.InputBox("Digite sua senha para confirmar a troca de email");
+                for (int i = 0; i < contador; i++)
+                {
+                    if (i == u.getposAtual())
+                    {
 
+                        if (b[i].Item4 == a)
+                        {
+                            if (c.Contains(textBox1.Text))
+                            {
+                                MessageBox.Show("E-mail já cadastrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                string nomeantigo = b[u.getposAtual()].Item1;
+                                u.editUsuario(i, b[i].Item1, textBox1.Text, b[i].Item3, b[i].Item4);
+                                label1.Text = b[u.getposAtual()].Item2;
+                                MessageBox.Show("Sucesso!Você terá que fazer login novamente para atualizar seus dados");
+                                var form = Application.OpenForms["Homepage"] as Homepage;
+                                if (form != null)
+                                {
+                                    form.butlogoff.PerformClick();
+                                }
+                            }
 
+                        }
+                        else
+                        {
+                            MessageBox.Show("Senha incorreta!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
 
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Digite um email válido", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+           
 
+           
+        }
     }
 }
+
 
 

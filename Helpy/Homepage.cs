@@ -197,6 +197,7 @@ namespace Helpy
             Tarefas.BackColor = Color.FromArgb(173, 122, 181);
             Compromissos.BackColor = Color.FromArgb(173, 122, 181);
             Amigos.BackColor = Color.FromArgb(173, 122, 181);
+            button3.BackColor = Color.FromArgb(173, 122, 181);
         }
 
         private void ButHome_MouseHover(object sender, EventArgs e)
@@ -229,6 +230,17 @@ namespace Helpy
         private void Button1_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Change();
+            button3.BackColor = Color.Orchid; ;
+
+            this.formLoader.Controls.Clear();
+            Usuario usuario = new Usuario() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            this.formLoader.Controls.Add(usuario);
+            usuario.Show();
         }
     }
 }
