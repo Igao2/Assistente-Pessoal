@@ -24,6 +24,10 @@ namespace Helpy
 
             tRue = true;
         }
+        public void setFalse()
+        {
+            tRue = false;
+        }
         public void delcontSolicita()
         {
             contSolicita--;

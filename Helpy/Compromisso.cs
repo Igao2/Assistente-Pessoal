@@ -43,7 +43,35 @@ namespace Helpy
             User u = new User();
             int a = cal.getcontItem();
             Amigo am = new Amigo();
-            if(textBox4.Text)
+           
+            if(textBox4.Text != "")
+            {
+                if(am.getcontAmigo()>0)
+                {
+                    List<Tuple<int, string>> aM = am.getAmigo();
+                    User z = new User();
+                    List<Tuple<string, string, string, string>> c = z.getUsuario();
+                    for(int i = 0; i<am.getcontAmigo();i++)
+                    {
+                        if (aM[i].Item1==u.getposAtual())
+                        {
+                            if (aM[i].Item2==textBox4.Text)
+                            {
+                                am.settRue();
+                                for(int j = 0;j<u.getCount();j++)
+                                {
+                                    meunome = c[u.getposAtual()].Item1;
+                                    if (c[j].Item1==textBox4.Text)
+                                    {
+                                        posamigo = j;
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
             if(am.gettRue()==true)
             {
                 if (checkBox1.Checked)
@@ -81,12 +109,13 @@ namespace Helpy
                             listView1.Items.Add(item);
                             cal.setcontItem();
                             cal.setcontItem();
+                            am.setFalse();
                             mes++;
                         }
                        
                     }
                 }
-                if (!checkBox1.Checked)
+                if (!checkBox1.Checked && !checkBox2.Checked)
                 {
                     cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, maskedTextBox2.Text);
                     meunome = "-" + meunome + "-" + textBox1.Text;
@@ -103,9 +132,44 @@ namespace Helpy
                     item.SubItems.Add(maskedTextBox1.Text);
                     item.SubItems.Add(textBox2.Text);
                     listView1.Items.Add(item);
+                    am.setFalse();
+                    cal.setcontItem();
+                    cal.setcontItem();
+                }
+                if (checkBox2.Checked)
+                {
+                    string[] dt = maskedTextBox2.Text.Split('/');
+                    string data;
+                    int ano = int.Parse(dt[2]);
+                    DateTime dat = DateTime.Now.AddYears(3);
+                    string v = dat.ToString();
+                    int anofinal = dat.Year;
 
-                    cal.setcontItem();
-                    cal.setcontItem();
+
+                    int contador = anofinal - ano;
+                    for (int i = 0; i < contador; i++)
+                    {
+                        cal.setcontItem();
+                        cal.setcontItem();
+                        dt[2] = ano.ToString();
+                        data = dt[0] + "/" + dt[1] + "/" + dt[2];
+                        cal.setEvento(u.getposAtual(), textBox1.Text, maskedTextBox1.Text, data);
+                        cal.setLocal(u.getposAtual(), textBox2.Text);
+                        cal.setEvento(posamigo, meunome, maskedTextBox1.Text, data);
+                        cal.setLocal(posamigo, textBox2.Text);
+                        ListViewItem item = new ListViewItem(textBox1.Text);
+
+                        item.SubItems.Add(data);
+                        item.SubItems.Add(maskedTextBox1.Text);
+                        item.SubItems.Add(textBox2.Text);
+                        listView1.Items.Add(item);
+                        ano++;
+                        am.setFalse();
+
+
+
+                    }
+
                 }
 
 
@@ -214,6 +278,7 @@ namespace Helpy
             maskedTextBox2.Text = "";
             maskedTextBox1.Text = "";
             textBox2.Text = "";
+            textBox4.Text = "";
             count++;
             
         }
@@ -352,7 +417,7 @@ namespace Helpy
                     {
                         List<Tuple<int, string, string, string>> f = cal.getEvento();
 
-                        if (f[i].Item4 == list.SubItems[1].Text)
+                        if (f[i].Item4 == list.SubItems[1].Text && f[i].Item2==list.Text)
                         {
                             cal.contmenosItem();
                             cal.delEvento(i);
@@ -373,6 +438,35 @@ namespace Helpy
                 }
 
 
+            }
+            if(e.KeyCode == Keys.E)
+            {
+                Calendario cal = new Calendario();
+                User u = new User();
+                int iteM = cal.getcontItem();
+                ListViewItem list = new ListViewItem();
+                list = listView1.SelectedItems[0];
+                int pos = listView1.Items.IndexOf(list);
+                for (int i = 0; i < iteM; i++)
+                {
+                    List<Tuple<int, string, string, string>> f = cal.getEvento();
+
+                    if (f[i].Item4 == list.SubItems[1].Text && f[i].Item2 == list.Text)
+                    {
+                        cal.editEvento(i, u.getposAtual(), textBox3.Text, maskedTextBox4.Text, maskedTextBox3.Text);
+                        cal.editLocal(i, u.getposAtual(), textBox5.Text);
+                        
+                        ListViewItem iten = new ListViewItem(textBox3.Text);
+                        iten.SubItems.Add(maskedTextBox3.Text);
+                        iten.SubItems.Add(maskedTextBox4.Text);
+                        iten.SubItems.Add(textBox5.Text);
+                        listView1.Items[pos] = iten;
+
+
+                    }
+
+
+                }
             }
         }
 
