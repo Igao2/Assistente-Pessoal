@@ -192,7 +192,7 @@ namespace Helpy
             List<String> c = new List<string>();
             for (int j = 0; j < u.getCount(); j++)
             {
-                c.Add(b[j].Item1);
+                c.Add(b[j].Item2);
             }
             int contador = u.getCount();
             if(textBox1.Text.Contains(arroba)&&textBox1.Text.Contains(pontocom))
@@ -211,7 +211,7 @@ namespace Helpy
                             }
                             else
                             {
-                                string nomeantigo = b[u.getposAtual()].Item1;
+                                
                                 u.editUsuario(i, b[i].Item1, textBox1.Text, b[i].Item3, b[i].Item4);
                                 label1.Text = b[u.getposAtual()].Item2;
                                 MessageBox.Show("Sucesso!Você terá que fazer login novamente para atualizar seus dados");
@@ -238,6 +238,93 @@ namespace Helpy
            
 
            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Calendario cal = new Calendario();
+           
+            User u = new User();
+            List<Tuple<string, string, string, string>> b = u.getUsuario();
+            List<String> c = new List<string>();
+            for (int j = 0; j < u.getCount(); j++)
+            {
+                c.Add(b[j].Item3);
+            }
+            int contador = u.getCount();
+            string a = Interaction.InputBox("Digite sua senha para confirmar a troca de telefone");
+            for (int i = 0; i < contador; i++)
+            {
+                if (i == u.getposAtual())
+                {
+
+                    if (b[i].Item4 == a)
+                    {
+                        if (c.Contains(textBox3.Text))
+                        {
+                            MessageBox.Show("telefone já cadastrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+
+                            u.editUsuario(i, b[i].Item1, b[i].Item2, textBox3.Text, b[i].Item4);
+                            label1.Text = b[u.getposAtual()].Item3;
+                            MessageBox.Show("Sucesso!Você terá que fazer login novamente para atualizar seus dados");
+                            var form = Application.OpenForms["Homepage"] as Homepage;
+                            if (form != null)
+                            {
+                                form.butlogoff.PerformClick();
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Senha incorreta!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Calendario cal = new Calendario();
+
+            User u = new User();
+            List<Tuple<string, string, string, string>> b = u.getUsuario();
+            List<String> c = new List<string>();
+         
+            int contador = u.getCount();
+            string a = Interaction.InputBox("Digite sua senha atual para confirmar a troca de senha");
+            for (int i = 0; i < contador; i++)
+            {
+                if (i == u.getposAtual())
+                {
+
+                    if (b[i].Item4 == a)
+                    {
+                        
+                        
+
+                            u.editUsuario(i, b[i].Item1, b[i].Item2, b[i].Item3, textBox4.Text);
+                            
+                            MessageBox.Show("Sucesso!Você terá que fazer login novamente para atualizar seus dados");
+                            var form = Application.OpenForms["Homepage"] as Homepage;
+                            if (form != null)
+                            {
+                                form.butlogoff.PerformClick();
+                            }
+                        
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Senha incorreta!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
         }
     }
 }

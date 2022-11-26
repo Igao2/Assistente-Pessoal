@@ -108,9 +108,9 @@ namespace Helpy
                     {
                         for(int i = 0; i < b.Count; i++)
                         {
-                            if (b[i].Item1 == usuario.Text || b[i].Item2 == email.Text )
+                            if (b[i].Item1 == usuario.Text || b[i].Item2 == email.Text || b[i].Item3 == telefone.Text)
                             {
-                                DialogResult dr = MessageBox.Show("Usuário já cadastrado!");
+                                DialogResult dr = MessageBox.Show("Usuário já cadastrado");
                                 usuario.Text = originalUsuario;
                                 email.Text = originalEmail;
                                 telefone.Text = originalTelefone;

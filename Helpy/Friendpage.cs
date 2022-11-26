@@ -24,6 +24,7 @@ namespace Helpy
         bool find = false;
         string meunome;
         string nomeamigo;
+        int posamigo;
         private void button1_Click(object sender, EventArgs e)
         {
             User u = new User();
@@ -119,7 +120,51 @@ namespace Helpy
 
         private void ListView1_KeyUp(object sender, KeyEventArgs e)
         {
-            
+            string nomeamigo;
+            string meunome;
+                
+            if(e.KeyCode == Keys.Delete)
+            {
+                User u = new User();
+                List<Tuple<string, string, string, string>> c = u.getUsuario();
+                    
+                meunome = c[u.getposAtual()].Item1;
+                ListViewItem list = new ListViewItem();
+                list = listView1.SelectedItems[0];
+               
+                Amigo am = new Amigo();
+                List<Tuple<int, string>> b = am.getAmigo();
+                DialogResult dr = MessageBox.Show("Deseja excluir o usuário de sua lista de amigos?", "Mensagem do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(dr ==DialogResult.Yes)
+                {
+                    for (int i = 0; i < u.getCount(); i++)
+                    {
+                        if (c[i].Item1 == list.Text)
+                        {
+                            nomeamigo = c[i].Item1;
+                            posamigo = i;
+                        }
+                        for (int j = 0; j < am.getcontAmigo(); j++)
+                        {
+                            if (b[j].Item1 == u.getposAtual() && b[j].Item2 == list.Text)
+                            {
+                                am.delAmigo(j);
+                                am.delcontAmigo();
+                                listView1.Items.Remove(list);
+                            }
+                            if (b[j].Item1 == posamigo && b[j].Item2 == meunome)
+                            {
+                                am.delAmigo(j);
+                                am.delcontAmigo();
+                            }
+                        }
+
+
+
+                    }
+                }
+                
+            }
         }
 
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)

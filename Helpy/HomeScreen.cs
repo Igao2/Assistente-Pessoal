@@ -66,7 +66,7 @@ namespace Helpy
                         if (n[i].Item4.Contains(dat.ToShortDateString()))
                         {
                             a = a +
-                                "\n" + n[i].Item2 + ","+ "horário: " + n[i].Item3;
+                                "\n" + n[i].Item2 + "  horario: " + n[i].Item3;
                         }
                     }
                 }
@@ -148,7 +148,7 @@ namespace Helpy
                         if (n[i].Item4.Contains(date))
                         {
                             a = a +
-                                "\n" + n[i].Item2 + " ,Horário: " + n[i].Item3;
+                                "\n" + n[i].Item2 + "  horário: " + n[i].Item3;
                         }
                     }
                   

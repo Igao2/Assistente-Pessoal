@@ -52,6 +52,7 @@
             // 
             this.maskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.maskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox1.HidePromptOnLeave = true;
             this.maskedTextBox1.Location = new System.Drawing.Point(244, 198);
             this.maskedTextBox1.Mask = "90:00";
             this.maskedTextBox1.Name = "maskedTextBox1";
@@ -199,6 +200,7 @@
             // 
             this.maskedTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.maskedTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBox4.HidePromptOnLeave = true;
             this.maskedTextBox4.Location = new System.Drawing.Point(655, 374);
             this.maskedTextBox4.Mask = "90:00";
             this.maskedTextBox4.Name = "maskedTextBox4";

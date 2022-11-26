@@ -280,6 +280,8 @@ namespace Helpy
             textBox2.Text = "";
             textBox4.Text = "";
             count++;
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
             
         }
 
@@ -461,6 +463,7 @@ namespace Helpy
                         iten.SubItems.Add(maskedTextBox4.Text);
                         iten.SubItems.Add(textBox5.Text);
                         listView1.Items[pos] = iten;
+                        break;
 
 
                     }

@@ -68,6 +68,10 @@ namespace Helpy
             amigo[posamigo] = edit[0];
             edit.RemoveAt(0);
         }
+        public void delAmigo(int posamigo)
+        {
+            amigo.RemoveAt(posamigo);
+        }
         public int getPosamigo()
         {
             return posAmigo;
