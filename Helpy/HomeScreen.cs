@@ -20,7 +20,7 @@ namespace Helpy
             User u = new User();
             
             Calendario cal = new Calendario();
-            List<Tuple<int, string, string, string>> eve = cal.getEvento();
+            List<Tuple<int, string, string, string,string>> eve = cal.getEvento();
             int posatual = u.getposAtual();
             int conT = cal.getcontItem();
 
@@ -53,7 +53,7 @@ namespace Helpy
        
             string date = dat.ToShortDateString();
             
-            List<Tuple<int, string, string, string>> n = cal.getEvento();
+            List<Tuple<int, string, string, string,string>> n = cal.getEvento();
             int poss = u.getposAtual();
             if (contador > 0)
             {
@@ -66,7 +66,7 @@ namespace Helpy
                         if (n[i].Item4.Contains(dat.ToShortDateString()))
                         {
                             a = a +
-                                "\n" + n[i].Item2 + "  horario: " + n[i].Item3;
+                                "\n" + n[i].Item2 + "  horario: " + n[i].Item3 + " local: " + n[i].Item5;
                         }
                     }
                 }
@@ -136,7 +136,7 @@ namespace Helpy
             dat = calAtual.SelectionStart;
             string date = dat.ToShortDateString();
             Calendario cal = new Calendario();
-            List<Tuple<int, string, string, string>> n = cal.getEvento();
+            List<Tuple<int, string, string, string,string>> n = cal.getEvento();
             int contador = cal.getcontItem();
                 if(contador > 0)
                 {

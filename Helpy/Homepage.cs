@@ -154,7 +154,7 @@ namespace Helpy
             Calendario cal = new Calendario();
             User u = new User();
             int posatual = u.getposAtual();
-            List<Tuple<int, string,string,string>> b = cal.getEvento();
+            List<Tuple<int, string,string,string,string>> b = cal.getEvento();
             int contador = cal.getcontItem();
             int pos = 0;
             string evento = " ";

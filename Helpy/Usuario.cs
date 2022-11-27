@@ -79,9 +79,9 @@ namespace Helpy
             User u = new User();
             List<Tuple<string, string, string, string>> b = u.getUsuario();
             Calendario cal = new Calendario();
-            List<Tuple<int, string, string, string>> c = cal.getEvento();
+            List<Tuple<int, string, string, string,string>> c = cal.getEvento();
             List<Tuple<int, string>> d = cal.getTarefa();
-            List<Tuple<int, string>> l = cal.getLocal();
+            
             List<Tuple<int, string>> amg = am.getAmigo();
             
             int contador = 0;
@@ -106,9 +106,9 @@ namespace Helpy
 
                         if (c[i].Item1 == a)
                         {
-                            cal.editEvento(i, u.getposAtual(), c[i].Item2, c[i].Item3, c[i].Item4);
+                            cal.editEvento(i, u.getposAtual(), c[i].Item2, c[i].Item3, c[i].Item4, c[i].Item5);
 
-                            cal.editLocal(i, u.getposAtual(), l[i].Item2);
+                            
 
 
 
@@ -116,9 +116,9 @@ namespace Helpy
                         if (c[i].Item1 == a + 1)
                         {
 
-                            cal.editEvento(i, obvio, c[i].Item2, c[i].Item3, c[i].Item4);
+                            cal.editEvento(i, obvio, c[i].Item2, c[i].Item3, c[i].Item4, c[i].Item5);
 
-                            cal.editLocal(i, obvio, l[i].Item2);
+                           
                             a++;
                             obvio++;
 
@@ -262,7 +262,7 @@ namespace Helpy
                     {
                         if (c.Contains(textBox3.Text))
                         {
-                            MessageBox.Show("telefone já cadastrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Telefone já cadastrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
