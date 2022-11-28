@@ -18,6 +18,40 @@ namespace Helpy
         public Usuario()
         {
             InitializeComponent();
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button1.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button1.BackColor = Color.Transparent;
+            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button2.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button2.BackColor = Color.Transparent;
+            button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button3.FlatAppearance.BorderSize = 0;
+            button3.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button3.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button3.BackColor = Color.Transparent;
+            button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button4.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button4.BackColor = Color.Transparent;
+            button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button5.FlatAppearance.BorderSize = 0;
+            button5.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            button5.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            button5.BackColor = Color.Transparent;
+            User u = new User();
+            List<Tuple<string, string, string, string>> c = u.getUsuario();
+            for(int i =0;i<u.getCount();i++)
+            {
+                textBox2.Text = c[i].Item1;
+                textBox1.Text = c[i].Item2;
+                textBox3.Text = c[i].Item3;
+                textBox4.Text = c[i].Item4;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -37,33 +71,49 @@ namespace Helpy
             {
                 if (i==u.getposAtual())
                 {
-                   
-                    if (b[i].Item4==a)
+
+                    if (b[i].Item4 == a)
                     {
-                        if (c.Contains(textBox2.Text))
+                        if (textBox2.Text != "")
                         {
-                            MessageBox.Show("Nome de usuário já existe", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            string nomeantigo = b[u.getposAtual()].Item1;
-                            u.editUsuario(i, textBox2.Text, b[i].Item2, b[i].Item3, b[i].Item4);
-                            List<Tuple<string, string, string, string>> z = u.getUsuario();
-                            label1.Text = z[i].Item1;
-                            string nomeatual = z[i].Item1;
-                            Amigo am = new Amigo();
-                            List<Tuple<int, string>> s = am.getAmigo();
-                            for (int j = 0; j < am.getcontAmigo(); j++)
+                            if (c.Contains(textBox2.Text))
                             {
-                                if (s[j].Item2 == nomeantigo)
+                                MessageBox.Show("Nome de usuário já existe", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                string nomeantigo = b[u.getposAtual()].Item1;
+                                u.editUsuario(i, textBox2.Text, b[i].Item2, b[i].Item3, b[i].Item4);
+                                List<Tuple<string, string, string, string>> z = u.getUsuario();
+
+                                string nomeatual = z[i].Item1;
+                                Amigo am = new Amigo();
+                                List<Tuple<int, string>> s = am.getAmigo();
+                                for (int j = 0; j < am.getcontAmigo(); j++)
                                 {
-                                    am.editAmigo(j, s[j].Item1, nomeatual);
+                                    if (s[j].Item2 == nomeantigo)
+                                    {
+                                        am.editAmigo(j, s[j].Item1, nomeatual);
+                                    }
+                                }
+                                MessageBox.Show("Sucesso!Você terá que fazer login novamente para atualizar seus dados");
+                                var form = Application.OpenForms["Homepage"] as Homepage;
+                                if (form != null)
+                                {
+                                    form.butlogoff.PerformClick();
                                 }
                             }
                         }
-                        
+                        else
+                        {
+                            MessageBox.Show("Senha incorreta!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
                     }
-                   
+                    else
+                    {
+                        MessageBox.Show("Preencha o campo!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -213,7 +263,7 @@ namespace Helpy
                             {
                                 
                                 u.editUsuario(i, b[i].Item1, textBox1.Text, b[i].Item3, b[i].Item4);
-                                label1.Text = b[u.getposAtual()].Item2;
+                                
                                 MessageBox.Show("Sucesso!Você terá que fazer login novamente para atualizar seus dados");
                                 var form = Application.OpenForms["Homepage"] as Homepage;
                                 if (form != null)
@@ -268,7 +318,7 @@ namespace Helpy
                         {
 
                             u.editUsuario(i, b[i].Item1, b[i].Item2, textBox3.Text, b[i].Item4);
-                            label1.Text = b[u.getposAtual()].Item3;
+                            
                             MessageBox.Show("Sucesso!Você terá que fazer login novamente para atualizar seus dados");
                             var form = Application.OpenForms["Homepage"] as Homepage;
                             if (form != null)
@@ -325,6 +375,31 @@ namespace Helpy
 
                 }
             }
+        }
+
+        private void Usuario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = "";
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void textBox3_Click(object sender, EventArgs e)
+        {
+            textBox3.Text = "";
+        }
+
+        private void textBox4_Click(object sender, EventArgs e)
+        {
+            textBox4.Text = "";
         }
     }
 }
