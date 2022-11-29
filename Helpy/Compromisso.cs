@@ -470,6 +470,11 @@ namespace Helpy
 
 
                 }
+                textBox3.Text = "";
+                maskedTextBox3.Text = "";
+                textBox5.Text = "";
+                maskedTextBox4.Text = "";
+
             }
         }
 

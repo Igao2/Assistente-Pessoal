@@ -35,6 +35,7 @@ namespace Helpy
             cal.setTarefa(posatual, textBox2.Text);
             checkedListBox1.Items.Add(textBox2.Text);
             cal.setcontTarefa();
+            textBox2.Text = "";
         }
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)

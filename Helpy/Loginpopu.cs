@@ -85,6 +85,7 @@ namespace Helpy
 
                     MessageBox.Show("Sua nova senha é " + sE, "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     u.setSMtrue();
+                    count = 0;
                 }
                 else
                 {
@@ -162,6 +163,7 @@ namespace Helpy
                 
                 MessageBox.Show("Sua nova senha é " + sE, "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 u.setSMtrue();
+                count = 0;
             }
             else
             {
@@ -253,6 +255,7 @@ namespace Helpy
                                             sE = senhanova;
                                             MessageBox.Show("Sua nova senha é " + sE, "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             u.setSMtrue();
+                                            count = 0;
                                         }
                                     }
                                     catch (Exception)
