@@ -413,11 +413,17 @@ namespace Helpy
                     int iteM = cal.getcontItem();
                     ListViewItem list = new ListViewItem();
                     list = listView1.SelectedItems[0];
-                   
+                    meunome = "-" + meunome + "-" + list.Text;
                    
                     for (int i = 0; i < iteM; i++)
                     {
                         List<Tuple<int, string, string, string,string>> f = cal.getEvento();
+
+                        if ( f[i].Item4 == list.SubItems[1].Text && f[i].Item2 == meunome)
+                        {
+                            cal.contmenosItem();
+                            cal.delEvento(i);
+                        }
 
                         if (f[i].Item4 == list.SubItems[1].Text && f[i].Item2==list.Text)
                         {

@@ -106,13 +106,13 @@ namespace Helpy
                         }
                         else
                         {
-                            MessageBox.Show("Senha incorreta!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Preencha os campos corretamente!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("Preencha o campo!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Senha incorreta!", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

@@ -48,6 +48,7 @@ namespace Helpy
             {
                 MessageBox.Show("Usuário não encontrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            textBox1.Text = "";
 
         }
 
