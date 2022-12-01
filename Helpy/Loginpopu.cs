@@ -243,7 +243,7 @@ namespace Helpy
                                         mail.Subject = "Recuperar senha";
                                         SmtpClient smtp = new SmtpClient("smtp.office365.com", 587);
                                         smtp.UseDefaultCredentials = false;
-                                        mail.Body = "Digite o seguinte código para recuperar sua senha "+ rand;
+                                        mail.Body = "Digite o seguinte código para recuperar sua senha "+ z;
                                         smtp.Credentials = new NetworkCredential("projetohelpy@outlook.com", "1234@.com");
                                         smtp.EnableSsl = true;
                                         smtp.Send(mail);

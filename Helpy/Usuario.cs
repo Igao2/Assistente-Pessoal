@@ -49,8 +49,9 @@ namespace Helpy
             {
                 textBox2.Text = c[i].Item1;
                 textBox1.Text = c[i].Item2;
-                textBox3.Text = c[i].Item3;
-                textBox4.Text = c[i].Item4;
+                maskedTextBox1.Text = c[i].Item3;
+                textBox4.Text = c[i].Item4; 
+
             }
         }
 
@@ -310,14 +311,14 @@ namespace Helpy
 
                     if (b[i].Item4 == a)
                     {
-                        if (c.Contains(textBox3.Text))
+                        if (c.Contains(maskedTextBox1.Text))
                         {
                             MessageBox.Show("Telefone já cadastrado", "Mensagem do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
 
-                            u.editUsuario(i, b[i].Item1, b[i].Item2, textBox3.Text, b[i].Item4);
+                            u.editUsuario(i, b[i].Item1, b[i].Item2,maskedTextBox1.Text, b[i].Item4);
                             
                             MessageBox.Show("Sucesso!Você terá que fazer login novamente para atualizar seus dados");
                             var form = Application.OpenForms["Homepage"] as Homepage;
@@ -354,10 +355,10 @@ namespace Helpy
 
                     if (b[i].Item4 == a)
                     {
-                        
-                        
 
-                            u.editUsuario(i, b[i].Item1, b[i].Item2, b[i].Item3, textBox4.Text);
+
+
+                        u.editUsuario(i, b[i].Item1, b[i].Item2, b[i].Item3, textBox4.Text);
                             
                             MessageBox.Show("Sucesso!Você terá que fazer login novamente para atualizar seus dados");
                             var form = Application.OpenForms["Homepage"] as Homepage;
@@ -392,14 +393,20 @@ namespace Helpy
             textBox1.Text = "";
         }
 
-        private void textBox3_Click(object sender, EventArgs e)
-        {
-            textBox3.Text = "";
-        }
-
+    
         private void textBox4_Click(object sender, EventArgs e)
         {
             textBox4.Text = "";
+        }
+
+        private void maskedTextBox1_Click(object sender, EventArgs e)
+        {
+            maskedTextBox1.Text = "";
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
