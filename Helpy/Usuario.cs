@@ -205,6 +205,11 @@ namespace Helpy
                     {
                         a = u.getposAtual() + 1;
                         obvio = u.getposAtual() + 1;
+                        if (amg[i].Item2 == b[u.getposAtual()].Item1)
+                        {
+                            am.delAmigo(i);
+                            am.delcontAmigo();
+                        }
                         if (amg[i].Item1 == a)
                         {
                             am.editAmigo(i, u.getposAtual(), amg[i].Item2);
